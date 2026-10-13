@@ -4,9 +4,26 @@ import About from './components/About';
 import PracticeAreas from './components/PracticeAreas';
 import Commitment from './components/Commitment';
 import FAQ from './components/FAQ';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
+  const path = window.location.pathname;
+
+  if (path === '/contato') {
+    return (
+      <>
+        <Header />
+
+        <main>
+          <Contact />
+        </main>
+
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <Header />
