@@ -3,26 +3,41 @@ export default function Hero() {
     <section id="inicio" className="hero">
       <div className="hero-bg" />
       <div className="hero-overlay" />
+
       <div className="hero-content">
         <div className="hero-tag">
           <span className="hero-tag-line" />
           Assistência Jurídica Especializada
         </div>
+
         <h1 className="hero-title">
-          Defesa da cidadania,<br />
-          dos direitos humanos<br />
-          e do interesse público
+          Defesa dos seus direitos
+          <br />
+          com atuação jurídica
+          <br />
+          especializada
         </h1>
+
         <p className="hero-subtitle">
-          Atuação em Direito Administrativo, Constitucional, Ambiental e Civil —
-          com ética, transparência e compromisso com a efetividade dos direitos
-          fundamentais.
+          Atuação jurídica voltada à proteção dos direitos do cidadão,
+          especialmente nas áreas de Direito Administrativo, Constitucional,
+          Ambiental e Civil.
         </p>
+
         <div className="hero-actions">
-          <a href="#atuacoes" className="btn btn-primary">Áreas de Atuação</a>
-          <a href="#contato" className="btn btn-outline hero-btn-light">Entrar em Contato</a>
+          <a href="#atuacoes" className="btn btn-primary">
+            Áreas de Atuação
+          </a>
+
+          <a
+            href="#contato"
+            className="btn btn-outline hero-btn-light"
+          >
+            Entrar em Contato
+          </a>
         </div>
       </div>
+
       <div className="hero-scroll">
         <span>Role para conhecer</span>
         <div className="hero-scroll-line" />
@@ -41,7 +56,7 @@ export default function Hero() {
         .hero-bg {
           position: absolute;
           inset: 0;
-          background-image: url('https://images.pexels.com/photos/6077091/pexels-photo-6077091.jpeg?auto=compress&cs=tinysrgb&h=900&w=1600');
+          background-image: url('https://static.wixstatic.com/media/3e60d9_c7637ebd2eec4ba1a50316936e7cf4e0~mv2.jpg');
           background-size: cover;
           background-position: center;
           animation: scaleIn 1.2s ease;
@@ -99,7 +114,7 @@ export default function Hero() {
 
         .hero-subtitle {
           font-size: 1.05rem;
-          color: rgba(255,255,255,0.75);
+          color: rgba(255, 255, 255, 0.75);
           max-width: 560px;
           margin-bottom: 40px;
           line-height: 1.7;
@@ -115,7 +130,7 @@ export default function Hero() {
 
         .hero-btn-light {
           color: #fff;
-          border-color: rgba(255,255,255,0.35);
+          border-color: rgba(255, 255, 255, 0.35);
         }
 
         .hero-btn-light:hover {
@@ -141,13 +156,17 @@ export default function Hero() {
           font-size: 0.7rem;
           letter-spacing: 0.15em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.5);
+          color: rgba(255, 255, 255, 0.5);
         }
 
         .hero-scroll-line {
           width: 1px;
           height: 50px;
-          background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+          background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.5),
+            transparent
+          );
           position: relative;
         }
 
@@ -158,16 +177,40 @@ export default function Hero() {
           left: 0;
           width: 100%;
           height: 50%;
-          background: linear-gradient(to bottom, var(--accent-400), transparent);
+          background: linear-gradient(
+            to bottom,
+            var(--accent-400),
+            transparent
+          );
           animation: scrollHint 2s ease-in-out infinite;
         }
 
         @keyframes scrollHint {
-          0%, 100% { transform: translateY(0); opacity: 1; }
-          50% { transform: translateY(25px); opacity: 0; }
+          0%,
+          100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+
+          50% {
+            transform: translateY(25px);
+            opacity: 0;
+          }
         }
 
         @media (max-width: 768px) {
+          .hero {
+            padding: 110px 0 70px;
+          }
+
+          .hero-title {
+            font-size: clamp(2rem, 10vw, 3.2rem);
+          }
+
+          .hero-subtitle {
+            font-size: 0.98rem;
+          }
+
           .hero-scroll {
             display: none;
           }
