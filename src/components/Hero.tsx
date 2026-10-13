@@ -48,7 +48,6 @@ export default function Hero() {
             />
           </div>
 
-          <div className="hero-photo-accent" />
         </div>
       </div>
 
@@ -188,16 +187,7 @@ export default function Hero() {
           background-repeat: no-repeat;
         }
 
-        .hero-photo-accent {
-          position: absolute;
-          right: -18px;
-          bottom: -18px;
-          width: 70%;
-          height: 70%;
-          border: 2px solid var(--accent-500);
-          border-radius: 18px;
-          z-index: 0;
-        }
+       
 
         .hero-scroll {
           position: absolute;
