@@ -3,21 +3,26 @@ export default function Footer() {
     <footer id="contato" className="footer">
       <div className="container">
         <div className="footer-grid">
+
           <div className="footer-brand">
-            <h3 className="footer-brand-name">Regina Perrotta</h3>
-            <p className="footer-brand-tagline">Advocacia &amp; Cidadania</p>
-            <p className="footer-brand-desc">
-              Defesa da cidadania, dos direitos humanos e do interesse público.
-            </p>
+            <div className="footer-logo-placeholder">
+              <div className="footer-logo-symbol">⚖</div>
+              <div className="footer-logo-name">Dra. Regina Perrotta</div>
+              <div className="footer-logo-subtitle">
+                ADVOCACIA & CIDADANIA
+              </div>
+            </div>
           </div>
 
           <div className="footer-col">
             <h4 className="footer-col-title">Contato</h4>
+
             <div className="footer-contact-item">
               <span className="footer-contact-label">Telefone</span>
               <a href="tel:+551195494265">11 9549-4265</a>
               <a href="tel:+5544997754951">44 99775-4951</a>
             </div>
+
             <div className="footer-contact-item">
               <span className="footer-contact-label">E-mail</span>
               <a href="mailto:assistenciajuridica@advreginaperrotta.com.br">
@@ -28,16 +33,26 @@ export default function Footer() {
 
           <div className="footer-col">
             <h4 className="footer-col-title">Endereço</h4>
+
             <p className="footer-address">
-              Rua Prof. Luiz Eulálio Bueno Vidigal, 175 — sala 1087<br />
-              Osasco — SP<br />
+              Rua Prof. Luiz Eulálio Bueno Vidigal, 175 — sala 1087
+              <br />
+              Osasco — SP
+              <br />
               CEP: 06093-085
             </p>
+
             <div className="footer-links">
-              <a href="#" className="footer-link">Política de Privacidade</a>
-              <a href="#" className="footer-link">LGPD</a>
+              <a href="#" className="footer-link">
+                Política de Privacidade
+              </a>
+
+              <a href="#" className="footer-link">
+                LGPD
+              </a>
             </div>
           </div>
+
         </div>
 
         <div className="footer-bottom">
@@ -47,114 +62,151 @@ export default function Footer() {
 
       <style>{`
         .footer {
-          background-color: var(--primary-900);
-          padding: 80px 0 32px;
-          color: rgba(255,255,255,0.7);
+          background-color: #d9a6a1;
+          padding: 48px 0 24px;
+          color: var(--primary-900);
         }
 
         .footer-grid {
           display: grid;
-          grid-template-columns: 1.5fr 1fr 1fr;
-          gap: 48px;
-          margin-bottom: 56px;
+          grid-template-columns: 1.4fr 1fr 1.2fr;
+          gap: 70px;
+          align-items: start;
+          max-width: 900px;
+          margin: 0 auto 42px;
         }
 
-        .footer-brand-name {
+        /* MARCA */
+
+        .footer-logo-placeholder {
+          width: 128px;
+          height: 128px;
+          background-color: var(--primary-900);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .footer-logo-symbol {
+          font-size: 2.2rem;
+          line-height: 1;
+          color: var(--accent-400);
+          margin-bottom: 8px;
+        }
+
+        .footer-logo-name {
           font-family: var(--font-serif);
-          font-size: 1.8rem;
-          font-weight: 600;
-          color: #fff;
+          font-size: 0.95rem;
+          color: var(--accent-400);
           margin-bottom: 4px;
         }
 
-        .footer-brand-tagline {
+        .footer-logo-subtitle {
           font-family: var(--font-sans);
-          font-size: 0.72rem;
-          font-weight: 400;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
+          font-size: 0.38rem;
+          letter-spacing: 0.16em;
           color: var(--accent-400);
-          margin-bottom: 20px;
         }
 
-        .footer-brand-desc {
-          font-size: 0.9rem;
-          color: rgba(255,255,255,0.5);
-          max-width: 300px;
-          line-height: 1.6;
-        }
+        /* TÍTULOS */
 
         .footer-col-title {
           font-family: var(--font-sans);
-          font-size: 0.78rem;
+          font-size: 0.68rem;
           font-weight: 500;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: var(--accent-400);
-          margin-bottom: 24px;
+          color: var(--primary-900);
+          margin-bottom: 20px;
         }
 
+        /* CONTATO */
+
         .footer-contact-item {
-          margin-bottom: 20px;
+          margin-bottom: 18px;
         }
 
         .footer-contact-label {
           display: block;
-          font-size: 0.75rem;
-          color: rgba(255,255,255,0.4);
-          margin-bottom: 6px;
+          font-size: 0.68rem;
+          color: rgba(70, 20, 24, 0.65);
+          margin-bottom: 5px;
         }
 
         .footer-contact-item a {
           display: block;
-          font-size: 0.92rem;
-          color: rgba(255,255,255,0.7);
-          transition: color 0.3s ease;
+          font-size: 0.78rem;
+          color: var(--primary-900);
           margin-bottom: 2px;
+          transition: opacity 0.3s ease;
         }
 
         .footer-contact-item a:hover {
-          color: var(--accent-400);
+          opacity: 0.65;
         }
 
+        /* ENDEREÇO */
+
         .footer-address {
-          font-size: 0.9rem;
-          color: rgba(255,255,255,0.6);
-          line-height: 1.7;
-          margin-bottom: 20px;
+          font-size: 0.78rem;
+          color: var(--primary-900);
+          line-height: 1.6;
+          margin-bottom: 16px;
         }
 
         .footer-links {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 7px;
         }
 
         .footer-link {
-          font-size: 0.85rem;
-          color: rgba(255,255,255,0.5);
-          transition: color 0.3s ease;
+          font-size: 0.72rem;
+          color: var(--primary-900);
+          transition: opacity 0.3s ease;
         }
 
         .footer-link:hover {
-          color: var(--accent-400);
+          opacity: 0.65;
         }
 
+        /* COPYRIGHT */
+
         .footer-bottom {
-          padding-top: 32px;
-          border-top: 1px solid rgba(255,255,255,0.08);
+          max-width: 900px;
+          margin: 0 auto;
+          padding-top: 22px;
+          border-top: 1px solid rgba(70, 20, 24, 0.2);
         }
 
         .footer-bottom p {
-          font-size: 0.8rem;
-          color: rgba(255,255,255,0.35);
+          font-size: 0.68rem;
+          color: rgba(70, 20, 24, 0.6);
           text-align: center;
         }
 
         @media (max-width: 768px) {
+          .footer {
+            padding: 50px 24px 24px;
+          }
+
           .footer-grid {
             grid-template-columns: 1fr;
             gap: 36px;
+          }
+
+          .footer-logo-placeholder {
+            margin: 0 auto;
+          }
+
+          .footer-col {
+            text-align: center;
+          }
+
+          .footer-links {
+            align-items: center;
           }
         }
       `}</style>
