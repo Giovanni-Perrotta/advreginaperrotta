@@ -60,8 +60,8 @@ export default function Footer() {
 
       <style>{`
         .footer {
-          background-color: #d9a6a1;
-          padding: 48px 0 24px;
+          background-color: #c9918d;
+          padding: 52px 0 26px;
           color: var(--primary-900);
         }
 
@@ -71,7 +71,7 @@ export default function Footer() {
           gap: 70px;
           align-items: start;
           max-width: 900px;
-          margin: 0 auto 42px;
+          margin: 0 auto 44px;
         }
 
         .footer-brand {
@@ -80,8 +80,8 @@ export default function Footer() {
         }
 
         .footer-logo {
-          width: 128px;
-          height: 128px;
+          width: 170px;
+          height: 170px;
           object-fit: contain;
           display: block;
         }
@@ -146,7 +146,7 @@ export default function Footer() {
           max-width: 900px;
           margin: 0 auto;
           padding-top: 22px;
-          border-top: 1px solid rgba(70, 20, 24, 0.2);
+          border-top: 1px solid rgba(70, 20, 24, 0.25);
         }
 
         .footer-bottom p {
@@ -170,8 +170,8 @@ export default function Footer() {
           }
 
           .footer-logo {
-            width: 128px;
-            height: 128px;
+            width: 150px;
+            height: 150px;
           }
 
           .footer-col {
