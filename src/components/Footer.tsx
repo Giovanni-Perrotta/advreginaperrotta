@@ -60,9 +60,9 @@ export default function Footer() {
 
       <style>{`
         .footer {
-          background-color: #c9918d;
+          background-color: #7a2027;
           padding: 52px 0 26px;
-          color: var(--primary-900);
+          color: rgba(255, 255, 255, 0.75);
         }
 
         .footer-grid {
@@ -92,7 +92,7 @@ export default function Footer() {
           font-weight: 500;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: var(--primary-900);
+          color: var(--accent-400);
           margin-bottom: 20px;
         }
 
@@ -103,25 +103,25 @@ export default function Footer() {
         .footer-contact-label {
           display: block;
           font-size: 0.68rem;
-          color: rgba(70, 20, 24, 0.65);
+          color: rgba(255, 255, 255, 0.5);
           margin-bottom: 5px;
         }
 
         .footer-contact-item a {
           display: block;
           font-size: 0.78rem;
-          color: var(--primary-900);
+          color: rgba(255, 255, 255, 0.8);
           margin-bottom: 2px;
-          transition: opacity 0.3s ease;
+          transition: color 0.3s ease;
         }
 
         .footer-contact-item a:hover {
-          opacity: 0.65;
+          color: var(--accent-400);
         }
 
         .footer-address {
           font-size: 0.78rem;
-          color: var(--primary-900);
+          color: rgba(255, 255, 255, 0.75);
           line-height: 1.6;
           margin-bottom: 16px;
         }
@@ -134,24 +134,24 @@ export default function Footer() {
 
         .footer-link {
           font-size: 0.72rem;
-          color: var(--primary-900);
-          transition: opacity 0.3s ease;
+          color: rgba(255, 255, 255, 0.7);
+          transition: color 0.3s ease;
         }
 
         .footer-link:hover {
-          opacity: 0.65;
+          color: var(--accent-400);
         }
 
         .footer-bottom {
           max-width: 900px;
           margin: 0 auto;
           padding-top: 22px;
-          border-top: 1px solid rgba(70, 20, 24, 0.25);
+          border-top: 1px solid rgba(255, 255, 255, 0.18);
         }
 
         .footer-bottom p {
           font-size: 0.68rem;
-          color: rgba(70, 20, 24, 0.6);
+          color: rgba(255, 255, 255, 0.45);
           text-align: center;
         }
 
