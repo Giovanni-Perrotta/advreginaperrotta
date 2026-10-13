@@ -1,16 +1,35 @@
 export default function About() {
   return (
-    <section id="sobre" className="about">
+    <section
+      id="sobre"
+      className="about"
+      style={{
+        opacity: 1,
+        visibility: 'visible',
+        display: 'block',
+      }}
+    >
       <div className="container">
-        <div className="about-content">
-
+        <div
+          className="about-content"
+          style={{
+            opacity: 1,
+            visibility: 'visible',
+            display: 'block',
+          }}
+        >
           <div className="about-header">
             <span className="section-label">Sobre</span>
-            <h2 className="section-title">Dra. Regina Perrotta</h2>
+
+            <h2 className="section-title">
+              Dra. Regina Perrotta
+            </h2>
           </div>
 
           <div className="about-quote">
-            <span className="about-quote-author">Dra. Regina Perrotta</span>
+            <span className="about-quote-author">
+              Dra. Regina Perrotta
+            </span>
 
             <blockquote>
               “O Direito deveria ser inerente à existência humana, jamais algo
@@ -22,7 +41,6 @@ export default function About() {
           </div>
 
           <div className="about-text">
-
             <p>
               Regina Perrotta é advogada, com atuação voltada à defesa da
               cidadania, dos direitos humanos e do interesse público. Dedica sua
@@ -33,11 +51,11 @@ export default function About() {
             </p>
 
             <p>
-              Sua atuação é marcada pelo acompanhamento das políticas públicas e
-              da Administração Pública, com atenção à legalidade, transparência,
-              moralidade administrativa, acesso à informação, proteção do
-              patrimônio público, meio ambiente, saúde pública e efetividade dos
-              direitos assegurados pela Constituição Federal.
+              Sua atuação é marcada pelo acompanhamento das políticas públicas
+              e da Administração Pública, com atenção à legalidade,
+              transparência, moralidade administrativa, acesso à informação,
+              proteção do patrimônio público, meio ambiente, saúde pública e
+              efetividade dos direitos assegurados pela Constituição Federal.
             </p>
 
             <p>
@@ -53,34 +71,45 @@ export default function About() {
             </p>
 
             <p>
-              Para Regina Perrotta, cidadania não se limita ao reconhecimento de
-              direitos: compreende também o direito de fiscalizar, questionar,
-              exigir transparência e cobrar do Estado o cumprimento de seus
-              deveres constitucionais.
+              Para Regina Perrotta, cidadania não se limita ao reconhecimento
+              de direitos: compreende também o direito de fiscalizar,
+              questionar, exigir transparência e cobrar do Estado o cumprimento
+              de seus deveres constitucionais.
             </p>
-
           </div>
-
         </div>
       </div>
 
       <style>{`
         .about {
-          background-color: var(--neutral-50);
-          padding: 80px 0 70px;
+          display: block !important;
+          opacity: 1 !important;
+          visibility: visible !important;
           height: auto !important;
           min-height: 0 !important;
+          max-height: none !important;
+          overflow: visible !important;
+          padding: 90px 0 80px !important;
+          margin: 0 !important;
+          background-color: var(--neutral-50);
         }
 
         .about-content {
+          display: block !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          height: auto !important;
+          min-height: 0 !important;
+          max-height: none !important;
+          overflow: visible !important;
           max-width: 900px;
           margin: 0 auto;
-          height: auto;
         }
 
         .about-header {
+          display: block;
           text-align: center;
-          margin-bottom: 42px;
+          margin-bottom: 40px;
         }
 
         .about-header .section-label {
@@ -93,6 +122,7 @@ export default function About() {
         }
 
         .about-quote {
+          display: block;
           max-width: 760px;
           margin: 0 auto 42px;
           padding: 30px 36px;
@@ -111,6 +141,7 @@ export default function About() {
         }
 
         .about-quote blockquote {
+          display: block;
           margin: 0;
           font-family: var(--font-serif);
           font-size: clamp(1.35rem, 2vw, 1.65rem);
@@ -120,11 +151,15 @@ export default function About() {
         }
 
         .about-text {
+          display: block !important;
+          opacity: 1 !important;
+          visibility: visible !important;
           max-width: 820px;
           margin: 0 auto;
         }
 
         .about-text p {
+          display: block;
           margin: 0 0 22px;
           font-size: 1rem;
           line-height: 1.8;
@@ -142,12 +177,11 @@ export default function About() {
 
         @media (max-width: 768px) {
           .about {
-            padding: 70px 24px 60px;
+            padding: 70px 24px 60px !important;
           }
 
           .about-quote {
             padding: 24px 20px;
-            margin-bottom: 40px;
           }
 
           .about-quote blockquote {
