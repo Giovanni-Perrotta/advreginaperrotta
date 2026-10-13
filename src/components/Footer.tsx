@@ -60,7 +60,7 @@ export default function Footer() {
 
       <style>{`
         .footer {
-          background-color: #7a2027;
+          background-color: #9F4A4D;
           padding: 52px 0 26px;
           color: rgba(255, 255, 255, 0.75);
         }
