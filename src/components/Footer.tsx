@@ -19,11 +19,11 @@ export default function Footer() {
               <span className="footer-contact-label">WhatsApp</span>
 
               <a
-                href="https://wa.me/551195494265?text=Ol%C3%A1%2C%20Dra.%20Regina.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico."
+                href="https://wa.me/5511954094265?text=Ol%C3%A1%2C%20Dra.%20Regina.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico."
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                11 9549-4265
+                11 95409-4265
               </a>
 
               <a
