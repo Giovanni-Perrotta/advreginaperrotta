@@ -10,12 +10,21 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(() => {
+    return (
+      window.scrollY > 60 ||
+      window.location.pathname === '/contato'
+    );
+  });
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 60);
+      setScrolled(
+        window.scrollY > 60 ||
+        window.location.pathname === '/contato'
+      );
     };
 
     onScroll();
@@ -44,12 +53,22 @@ export default function Header() {
     setMenuOpen(false);
   };
 
+  const handleHomeNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith('#') && window.location.pathname !== '/') {
+      event.preventDefault();
+      window.location.href = `/${href}`;
+    }
+  };
+
   return (
     <header className={`header ${scrolled ? 'header-scrolled' : ''}`}>
       <div className="header-inner">
 
         <a
-          href="#inicio"
+          href="/"
           className="header-logo"
           onClick={closeMenu}
           aria-label="Regina Perrotta Advocacia - Início"
@@ -71,7 +90,10 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              onClick={closeMenu}
+              onClick={(event) => {
+                closeMenu();
+                handleHomeNavigation(event, link.href);
+              }}
               className="header-nav-link"
             >
               {link.label}
