@@ -10,10 +10,12 @@ export default function Hero() {
             <span className="hero-tag-line" />
             Assistência Jurídica Especializada
           </div>
-          
+
           <h1 className="hero-title">
-            Defesa da cidadania,<br />
-            dos direitos humanos<br />
+            Defesa da cidadania,
+            <br />
+            dos direitos humanos
+            <br />
             e do interesse público
           </h1>
 
@@ -39,12 +41,13 @@ export default function Hero() {
 
         <div className="hero-photo">
           <div className="hero-photo-frame">
-            <img
-              src="/regina.png"
-              alt="Dra. Regina Perrotta"
+            <div
               className="hero-photo-image"
+              role="img"
+              aria-label="Dra. Regina Perrotta"
             />
           </div>
+
           <div className="hero-photo-accent" />
         </div>
       </div>
@@ -86,7 +89,7 @@ export default function Hero() {
 
         .hero-content {
           position: relative;
-          z-index: 1;
+          z-index: 2;
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 24px;
@@ -177,12 +180,12 @@ export default function Hero() {
         }
 
         .hero-photo-image {
-          display: block;
           width: 100%;
-          height: auto;
-          aspect-ratio: 3 / 4;
-          object-fit: cover;
-          object-position: center top;
+          height: 560px;
+          background-image: url('/regina.png');
+          background-size: cover;
+          background-position: center top;
+          background-repeat: no-repeat;
         }
 
         .hero-photo-accent {
@@ -205,7 +208,7 @@ export default function Hero() {
           flex-direction: column;
           align-items: center;
           gap: 10px;
-          z-index: 2;
+          z-index: 3;
           animation: fadeIn 1.5s ease 1s both;
         }
 
@@ -285,6 +288,10 @@ export default function Hero() {
 
           .hero-photo {
             width: min(78vw, 330px);
+          }
+
+          .hero-photo-image {
+            height: 440px;
           }
 
           .hero-scroll {
