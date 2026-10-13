@@ -10,7 +10,7 @@ export default function Hero() {
             <span className="hero-tag-line" />
             Assistência Jurídica Especializada
           </div>
-
+          
           <h1 className="hero-title">
             Defesa da cidadania,<br />
             dos direitos humanos<br />
