@@ -2,34 +2,26 @@ export default function About() {
   return (
     <section id="sobre" className="about">
       <div className="container">
-        <div className="about-grid">
-          <div className="about-image-wrap">
-            <div className="about-image-frame">
-              <img
-                src="https://images.pexels.com/photos/8111888/pexels-photo-8111888.jpeg?auto=compress&cs=tinysrgb&h=800&w=600"
-                alt="Dra. Regina Perrotta"
-                className="about-image"
-              />
-            </div>
-            <div className="about-image-accent" />
+        <div className="about-content">
+
+          <div className="about-header">
+            <span className="section-label">Sobre</span>
+            <h2 className="section-title">Dra. Regina Perrotta</h2>
+          </div>
+
+          <div className="about-quote">
+            <span className="about-quote-author">Dra. Regina Perrotta</span>
+
+            <blockquote>
+              “O Direito deveria ser inerente à existência humana, jamais algo
+              pelo qual fosse necessário lutar. Mas, quando é negado, violado
+              ou usurpado, cabe ao advogado ser a mão firme que o sustenta, a
+              voz que o reivindica e a confiança de quem precisa vê-lo
+              restabelecido.”
+            </blockquote>
           </div>
 
           <div className="about-text">
-            <span className="section-label">Sobre</span>
-
-            <h2 className="section-title">Dra. Regina Perrotta</h2>
-
-            <div className="about-quote">
-              <span className="about-quote-author">Dra. Regina Perrotta</span>
-
-              <blockquote>
-                “O Direito deveria ser inerente à existência humana, jamais algo
-                pelo qual fosse necessário lutar. Mas, quando é negado, violado
-                ou usurpado, cabe ao advogado ser a mão firme que o sustenta, a
-                voz que o reivindica e a confiança de quem precisa vê-lo
-                restabelecido.”
-              </blockquote>
-            </div>
 
             <p>
               Regina Perrotta é advogada, com atuação voltada à defesa da
@@ -42,10 +34,10 @@ export default function About() {
 
             <p>
               Sua atuação é marcada pelo acompanhamento das políticas públicas e
-              da Administração Pública, com atenção à legalidade,
-              transparência, moralidade administrativa, acesso à informação,
-              proteção do patrimônio público, meio ambiente, saúde pública e
-              efetividade dos direitos assegurados pela Constituição Federal.
+              da Administração Pública, com atenção à legalidade, transparência,
+              moralidade administrativa, acesso à informação, proteção do
+              patrimônio público, meio ambiente, saúde pública e efetividade dos
+              direitos assegurados pela Constituição Federal.
             </p>
 
             <p>
@@ -66,7 +58,9 @@ export default function About() {
               exigir transparência e cobrar do Estado o cumprimento de seus
               deveres constitucionais.
             </p>
+
           </div>
+
         </div>
       </div>
 
@@ -76,76 +70,37 @@ export default function About() {
           padding: 110px 0;
         }
 
-        .about-grid {
-          display: grid;
-          grid-template-columns: 1fr 1.4fr;
-          gap: 64px;
-          align-items: start;
+        .about-content {
+          max-width: 900px;
+          margin: 0 auto;
         }
 
-        .about-image-wrap {
-          position: relative;
-          padding-top: 16px;
+        .about-header {
+          text-align: center;
+          margin-bottom: 42px;
         }
 
-        .about-image-frame {
-          position: relative;
-          z-index: 1;
-          overflow: hidden;
-          box-shadow: var(--shadow-lg);
-        }
-
-        .about-image {
+        .about-header .section-label {
           display: block;
-          width: 100%;
-          height: auto;
-          filter: saturate(0.85) contrast(1.05);
-          transition: transform 0.6s ease;
-        }
-
-        .about-image:hover {
-          transform: scale(1.03);
-        }
-
-        .about-image-accent {
-          position: absolute;
-          bottom: -16px;
-          right: -16px;
-          width: 60%;
-          height: 60%;
-          border: 2px solid var(--accent-500);
-          z-index: 0;
-        }
-
-        .about-text p {
-          margin-bottom: 18px;
-          font-size: 0.98rem;
-          color: var(--neutral-600);
-        }
-
-        .about-text p:first-of-type {
-          font-size: 1.05rem;
-          color: var(--neutral-700);
-        }
-
-        .about-text .section-label {
           margin-bottom: 12px;
         }
 
-        .about-text .section-title {
-          margin-bottom: 28px;
+        .about-header .section-title {
+          margin: 0;
         }
 
         .about-quote {
-          margin: 0 0 34px;
-          padding: 24px 28px;
+          max-width: 760px;
+          margin: 0 auto 52px;
+          padding: 30px 36px;
           background-color: #fdf3f2;
           border-left: 2px solid var(--accent-500);
+          text-align: center;
         }
 
         .about-quote-author {
           display: block;
-          margin-bottom: 10px;
+          margin-bottom: 14px;
           font-family: var(--font-sans);
           font-size: 0.72rem;
           color: var(--primary-700);
@@ -155,25 +110,50 @@ export default function About() {
         .about-quote blockquote {
           margin: 0;
           font-family: var(--font-serif);
-          font-size: clamp(1.3rem, 2vw, 1.65rem);
-          line-height: 1.25;
+          font-size: clamp(1.35rem, 2vw, 1.65rem);
+          line-height: 1.35;
           font-weight: 400;
           color: var(--primary-700);
         }
 
-        @media (max-width: 768px) {
-          .about-grid {
-            grid-template-columns: 1fr;
-            gap: 40px;
-          }
+        .about-text {
+          max-width: 820px;
+          margin: 0 auto;
+        }
 
-          .about-image-wrap {
-            max-width: 380px;
-            margin: 0 auto;
+        .about-text p {
+          margin: 0 0 22px;
+          font-size: 1rem;
+          line-height: 1.8;
+          color: var(--neutral-600);
+        }
+
+        .about-text p:first-child {
+          font-size: 1.05rem;
+          color: var(--neutral-700);
+        }
+
+        .about-text p:last-child {
+          margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+          .about {
+            padding: 80px 24px;
           }
 
           .about-quote {
-            padding: 20px;
+            padding: 24px 20px;
+            margin-bottom: 40px;
+          }
+
+          .about-quote blockquote {
+            font-size: 1.3rem;
+          }
+
+          .about-text p {
+            font-size: 0.96rem;
+            line-height: 1.7;
           }
         }
       `}</style>
