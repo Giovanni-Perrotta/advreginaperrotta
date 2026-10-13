@@ -5,13 +5,11 @@ export default function Footer() {
         <div className="footer-grid">
 
           <div className="footer-brand">
-            <div className="footer-logo-placeholder">
-              <div className="footer-logo-symbol">⚖</div>
-              <div className="footer-logo-name">Dra. Regina Perrotta</div>
-              <div className="footer-logo-subtitle">
-                ADVOCACIA & CIDADANIA
-              </div>
-            </div>
+            <img
+              src="/logo.png"
+              alt="Dra. Regina Perrotta"
+              className="footer-logo"
+            />
           </div>
 
           <div className="footer-col">
@@ -76,41 +74,17 @@ export default function Footer() {
           margin: 0 auto 42px;
         }
 
-        /* MARCA */
+        .footer-brand {
+          display: flex;
+          align-items: flex-start;
+        }
 
-        .footer-logo-placeholder {
+        .footer-logo {
           width: 128px;
           height: 128px;
-          background-color: var(--primary-900);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
+          object-fit: contain;
+          display: block;
         }
-
-        .footer-logo-symbol {
-          font-size: 2.2rem;
-          line-height: 1;
-          color: var(--accent-400);
-          margin-bottom: 8px;
-        }
-
-        .footer-logo-name {
-          font-family: var(--font-serif);
-          font-size: 0.95rem;
-          color: var(--accent-400);
-          margin-bottom: 4px;
-        }
-
-        .footer-logo-subtitle {
-          font-family: var(--font-sans);
-          font-size: 0.38rem;
-          letter-spacing: 0.16em;
-          color: var(--accent-400);
-        }
-
-        /* TÍTULOS */
 
         .footer-col-title {
           font-family: var(--font-sans);
@@ -121,8 +95,6 @@ export default function Footer() {
           color: var(--primary-900);
           margin-bottom: 20px;
         }
-
-        /* CONTATO */
 
         .footer-contact-item {
           margin-bottom: 18px;
@@ -147,8 +119,6 @@ export default function Footer() {
           opacity: 0.65;
         }
 
-        /* ENDEREÇO */
-
         .footer-address {
           font-size: 0.78rem;
           color: var(--primary-900);
@@ -171,8 +141,6 @@ export default function Footer() {
         .footer-link:hover {
           opacity: 0.65;
         }
-
-        /* COPYRIGHT */
 
         .footer-bottom {
           max-width: 900px;
@@ -197,8 +165,13 @@ export default function Footer() {
             gap: 36px;
           }
 
-          .footer-logo-placeholder {
-            margin: 0 auto;
+          .footer-brand {
+            justify-content: center;
+          }
+
+          .footer-logo {
+            width: 128px;
+            height: 128px;
           }
 
           .footer-col {
