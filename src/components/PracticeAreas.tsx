@@ -35,7 +35,8 @@ export default function PracticeAreas() {
   return (
     <section id="atuacoes" className="areas">
       <div className="container">
-        <div className="areas-header reveal">
+
+        <div className="areas-header">
           <span className="section-label">Atuações</span>
           <h2 className="section-title">Áreas de Atuação</h2>
           <p className="areas-intro">
@@ -49,17 +50,18 @@ export default function PracticeAreas() {
             <AreaItem key={area.number} area={area} index={i} />
           ))}
         </div>
+
       </div>
 
       <style>{`
         .areas {
           background-color: #fff;
-          padding: 110px 0;
+          padding: 80px 0;
         }
 
         .areas-header {
           text-align: center;
-          margin-bottom: 64px;
+          margin-bottom: 54px;
         }
 
         .areas-header .section-label {
@@ -129,6 +131,14 @@ export default function PracticeAreas() {
         }
 
         @media (max-width: 768px) {
+          .areas {
+            padding: 60px 0;
+          }
+
+          .areas-header {
+            margin-bottom: 40px;
+          }
+
           .area-item {
             grid-template-columns: 1fr;
             gap: 16px;
@@ -148,6 +158,7 @@ function AreaItem({
   index: number;
 }) {
   const { ref, visible } = useReveal<HTMLDivElement>();
+
   return (
     <div
       ref={ref}
@@ -155,12 +166,18 @@ function AreaItem({
       style={{ transitionDelay: `${index * 80}ms` }}
     >
       <div className="area-number">{area.number}</div>
+
       <div className="area-content">
         <h3>{area.title}</h3>
+
         <p>{area.text}</p>
+
         {area.text2 && <p>{area.text2}</p>}
+
         {area.quote && (
-          <blockquote className="area-quote">{area.quote}</blockquote>
+          <blockquote className="area-quote">
+            {area.quote}
+          </blockquote>
         )}
       </div>
     </div>
