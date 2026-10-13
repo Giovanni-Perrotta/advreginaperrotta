@@ -24,28 +24,49 @@ export default function FAQ() {
   return (
     <section id="faq" className="faq">
       <div className="container-narrow">
-        <div className="faq-header reveal">
+
+        <div className="faq-header">
           <span className="section-label">Dúvidas</span>
-          <h2 className="section-title">Perguntas Frequentes</h2>
+
+          <h2 className="section-title">
+            Perguntas Frequentes
+          </h2>
         </div>
 
         <div className="faq-list">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
+
             return (
-              <div key={i} className={`faq-item ${isOpen ? 'open' : ''}`}>
+              <div
+                key={i}
+                className={`faq-item ${isOpen ? 'open' : ''}`}
+              >
                 <button
                   className="faq-question"
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  onClick={() =>
+                    setOpenIndex(isOpen ? null : i)
+                  }
                   aria-expanded={isOpen}
                 >
                   <span>{faq.question}</span>
+
                   <span className="faq-toggle">
                     <span className="faq-toggle-line" />
-                    <span className={`faq-toggle-line vertical ${isOpen ? 'open' : ''}`} />
+
+                    <span
+                      className={`faq-toggle-line vertical ${
+                        isOpen ? 'open' : ''
+                      }`}
+                    />
                   </span>
                 </button>
-                <div className={`faq-answer-wrap ${isOpen ? 'open' : ''}`}>
+
+                <div
+                  className={`faq-answer-wrap ${
+                    isOpen ? 'open' : ''
+                  }`}
+                >
                   <div className="faq-answer">
                     <p>{faq.answer}</p>
                   </div>
@@ -54,17 +75,18 @@ export default function FAQ() {
             );
           })}
         </div>
+
       </div>
 
       <style>{`
         .faq {
           background-color: var(--neutral-50);
-          padding: 110px 0;
+          padding: 80px 0;
         }
 
         .faq-header {
           text-align: center;
-          margin-bottom: 56px;
+          margin-bottom: 44px;
         }
 
         .faq-list {
@@ -86,7 +108,7 @@ export default function FAQ() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 24px 0;
+          padding: 22px 0;
           text-align: left;
           font-family: var(--font-serif);
           font-size: 1.25rem;
@@ -138,13 +160,28 @@ export default function FAQ() {
         }
 
         .faq-answer {
-          padding: 0 0 24px 0;
+          padding: 0 0 22px;
         }
 
         .faq-answer p {
           font-size: 0.95rem;
           color: var(--neutral-600);
           line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+          .faq {
+            padding: 65px 24px;
+          }
+
+          .faq-header {
+            margin-bottom: 36px;
+          }
+
+          .faq-question {
+            font-size: 1.1rem;
+            padding: 20px 0;
+          }
         }
       `}</style>
     </section>
