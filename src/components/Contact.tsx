@@ -15,7 +15,10 @@ export default function Contact() {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    formData.append('_subject', 'Novo contato pelo site — Regina Perrotta Advocacia');
+    formData.append(
+      '_subject',
+      'Novo contato pelo site — Regina Perrotta Advocacia'
+    );
     formData.append('_template', 'table');
     formData.append('_captcha', 'false');
     formData.append('_replyto', String(formData.get('email') || ''));
@@ -63,13 +66,32 @@ export default function Contact() {
 
             <div className="contact-detail">
               <span className="contact-detail-label">Telefone</span>
-              <a href="tel:+551195494265">11 9549-4265</a>
-              <a href="tel:+5544997754951">44 99775-4951</a>
+
+              <a
+                href="https://wa.me/5511954094265?text=Ol%C3%A1%2C%20Dra.%20Regina.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                11 95409-4265
+              </a>
+
+              <a
+                href="https://wa.me/5544997754951?text=Ol%C3%A1%2C%20Dra.%20Regina.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                44 99775-4951
+              </a>
             </div>
 
             <div className="contact-detail">
               <span className="contact-detail-label">E-mail</span>
-              <a href="mailto:assistenciajuridica@advreginaperrotta.com.br">
+
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=assistenciajuridica@advreginaperrotta.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 assistenciajuridica@advreginaperrotta.com.br
               </a>
             </div>
