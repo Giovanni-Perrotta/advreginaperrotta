@@ -31,7 +31,9 @@ export default function Hero() {
             </a>
 
             <a
-              href="#contato"
+              href="https://wa.me/5544997754951?text=Ol%C3%A1%2C%20Dra.%20Regina.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico."
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-outline hero-btn-light"
             >
               Entrar em Contato
@@ -47,7 +49,6 @@ export default function Hero() {
               aria-label="Dra. Regina Perrotta"
             />
           </div>
-
         </div>
       </div>
 
@@ -186,8 +187,6 @@ export default function Hero() {
           background-position: center top;
           background-repeat: no-repeat;
         }
-
-       
 
         .hero-scroll {
           position: absolute;
