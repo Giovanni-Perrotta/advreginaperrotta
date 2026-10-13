@@ -1,13 +1,9 @@
-import { useReveal } from '../hooks/useReveal';
-
 export default function About() {
-  const { ref, visible } = useReveal<HTMLDivElement>();
-
   return (
     <section id="sobre" className="about">
       <div className="container">
-        <div ref={ref} className={`about-grid ${visible ? 'visible' : ''}`}>
-          <div className="about-image-wrap reveal">
+        <div className="about-grid">
+          <div className="about-image-wrap">
             <div className="about-image-frame">
               <img
                 src="https://images.pexels.com/photos/8111888/pexels-photo-8111888.jpeg?auto=compress&cs=tinysrgb&h=800&w=600"
@@ -18,13 +14,14 @@ export default function About() {
             <div className="about-image-accent" />
           </div>
 
-          <div className="about-text reveal">
+          <div className="about-text">
             <span className="section-label">Sobre</span>
 
             <h2 className="section-title">Dra. Regina Perrotta</h2>
 
             <div className="about-quote">
               <span className="about-quote-author">Dra. Regina Perrotta</span>
+
               <blockquote>
                 “O Direito deveria ser inerente à existência humana, jamais algo
                 pelo qual fosse necessário lutar. Mas, quando é negado, violado
@@ -99,6 +96,7 @@ export default function About() {
         }
 
         .about-image {
+          display: block;
           width: 100%;
           height: auto;
           filter: saturate(0.85) contrast(1.05);
