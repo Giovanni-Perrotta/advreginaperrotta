@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer id="rodape" className="footer">
       <div className="container">
         <div className="footer-grid">
 
@@ -17,13 +17,32 @@ export default function Footer() {
 
             <div className="footer-contact-item">
               <span className="footer-contact-label">Telefone</span>
-              <a href="tel:+551195494265">11 9549-4265</a>
-              <a href="tel:+5544997754951">44 99775-4951</a>
+
+              <a
+                href="https://wa.me/551195494265"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                11 9549-4265
+              </a>
+
+              <a
+                href="https://wa.me/5544997754951"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                44 99775-4951
+              </a>
             </div>
 
             <div className="footer-contact-item">
               <span className="footer-contact-label">E-mail</span>
-              <a href="mailto:assistenciajuridica@advreginaperrotta.com.br">
+
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=assistenciajuridica@advreginaperrotta.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 assistenciajuridica@advreginaperrotta.com.br
               </a>
             </div>
@@ -54,24 +73,25 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 Regina Perrotta. Todos os direitos reservados.</p>
+          <p>
+            © 2026 Regina Perrotta. Todos os direitos reservados.
+          </p>
         </div>
       </div>
 
       <style>{`
         .footer {
-          background-color: #9F4A4D;
-          padding: 52px 0 26px;
-          color: rgba(255, 255, 255, 0.75);
+          background-color: var(--primary-900);
+          padding: 80px 0 32px;
+          color: rgba(255,255,255,0.7);
         }
 
         .footer-grid {
           display: grid;
-          grid-template-columns: 1.4fr 1fr 1.2fr;
-          gap: 70px;
+          grid-template-columns: 1.5fr 1fr 1fr;
+          gap: 48px;
+          margin-bottom: 56px;
           align-items: start;
-          max-width: 900px;
-          margin: 0 auto 44px;
         }
 
         .footer-brand {
@@ -80,39 +100,40 @@ export default function Footer() {
         }
 
         .footer-logo {
-          width: 170px;
-          height: 170px;
+          width: 150px;
+          height: 150px;
           object-fit: contain;
           display: block;
         }
 
         .footer-col-title {
           font-family: var(--font-sans);
-          font-size: 0.68rem;
+          font-size: 0.78rem;
           font-weight: 500;
           letter-spacing: 0.18em;
           text-transform: uppercase;
           color: var(--accent-400);
-          margin-bottom: 20px;
+          margin-bottom: 24px;
         }
 
         .footer-contact-item {
-          margin-bottom: 18px;
+          margin-bottom: 20px;
         }
 
         .footer-contact-label {
           display: block;
-          font-size: 0.68rem;
-          color: rgba(255, 255, 255, 0.5);
-          margin-bottom: 5px;
+          font-size: 0.75rem;
+          color: rgba(255,255,255,0.4);
+          margin-bottom: 6px;
         }
 
         .footer-contact-item a {
           display: block;
-          font-size: 0.78rem;
-          color: rgba(255, 255, 255, 0.8);
-          margin-bottom: 2px;
+          font-size: 0.92rem;
+          color: rgba(255,255,255,0.7);
           transition: color 0.3s ease;
+          margin-bottom: 2px;
+          text-decoration: none;
         }
 
         .footer-contact-item a:hover {
@@ -120,22 +141,23 @@ export default function Footer() {
         }
 
         .footer-address {
-          font-size: 0.78rem;
-          color: rgba(255, 255, 255, 0.75);
-          line-height: 1.6;
-          margin-bottom: 16px;
+          font-size: 0.9rem;
+          color: rgba(255,255,255,0.6);
+          line-height: 1.7;
+          margin-bottom: 20px;
         }
 
         .footer-links {
           display: flex;
           flex-direction: column;
-          gap: 7px;
+          gap: 8px;
         }
 
         .footer-link {
-          font-size: 0.72rem;
-          color: rgba(255, 255, 255, 0.7);
+          font-size: 0.85rem;
+          color: rgba(255,255,255,0.5);
           transition: color 0.3s ease;
+          text-decoration: none;
         }
 
         .footer-link:hover {
@@ -143,43 +165,25 @@ export default function Footer() {
         }
 
         .footer-bottom {
-          max-width: 900px;
-          margin: 0 auto;
-          padding-top: 22px;
-          border-top: 1px solid rgba(255, 255, 255, 0.18);
+          padding-top: 32px;
+          border-top: 1px solid rgba(255,255,255,0.08);
         }
 
         .footer-bottom p {
-          font-size: 0.68rem;
-          color: rgba(255, 255, 255, 0.45);
+          font-size: 0.8rem;
+          color: rgba(255,255,255,0.35);
           text-align: center;
         }
 
         @media (max-width: 768px) {
-          .footer {
-            padding: 50px 24px 24px;
-          }
-
           .footer-grid {
             grid-template-columns: 1fr;
             gap: 36px;
           }
 
-          .footer-brand {
-            justify-content: center;
-          }
-
           .footer-logo {
-            width: 150px;
-            height: 150px;
-          }
-
-          .footer-col {
-            text-align: center;
-          }
-
-          .footer-links {
-            align-items: center;
+            width: 130px;
+            height: 130px;
           }
         }
       `}</style>
