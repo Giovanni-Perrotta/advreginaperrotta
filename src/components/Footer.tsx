@@ -60,12 +60,11 @@ export default function Footer() {
             </p>
 
             <div className="footer-links">
-              <a href="#" className="footer-link">
+              <a
+                href="/privacidade"
+                className="footer-link"
+              >
                 Política de Privacidade
-              </a>
-
-              <a href="#" className="footer-link">
-                LGPD
               </a>
             </div>
           </div>
