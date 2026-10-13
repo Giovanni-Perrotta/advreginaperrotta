@@ -20,7 +20,20 @@ export default function About() {
 
           <div className="about-text reveal">
             <span className="section-label">Sobre</span>
+
             <h2 className="section-title">Dra. Regina Perrotta</h2>
+
+            <div className="about-quote">
+              <span className="about-quote-author">Dra. Regina Perrotta</span>
+              <blockquote>
+                “O Direito deveria ser inerente à existência humana, jamais algo
+                pelo qual fosse necessário lutar. Mas, quando é negado, violado
+                ou usurpado, cabe ao advogado ser a mão firme que o sustenta, a
+                voz que o reivindica e a confiança de quem precisa vê-lo
+                restabelecido.”
+              </blockquote>
+            </div>
+
             <p>
               Regina Perrotta é advogada, com atuação voltada à defesa da
               cidadania, dos direitos humanos e do interesse público. Dedica sua
@@ -29,6 +42,7 @@ export default function About() {
               Constitucional, Ambiental e dos direitos sociais, coletivos e
               difusos.
             </p>
+
             <p>
               Sua atuação é marcada pelo acompanhamento das políticas públicas e
               da Administração Pública, com atenção à legalidade,
@@ -36,6 +50,7 @@ export default function About() {
               proteção do patrimônio público, meio ambiente, saúde pública e
               efetividade dos direitos assegurados pela Constituição Federal.
             </p>
+
             <p>
               Como observadora dos direitos humanos e da cidadania, desenvolve
               trabalho de fiscalização cidadã e controle social, acompanhando a
@@ -47,6 +62,7 @@ export default function About() {
               públicos, políticas sociais, proteção ambiental e direitos
               fundamentais.
             </p>
+
             <p>
               Para Regina Perrotta, cidadania não se limita ao reconhecimento de
               direitos: compreende também o direito de fiscalizar, questionar,
@@ -122,6 +138,31 @@ export default function About() {
           margin-bottom: 28px;
         }
 
+        .about-quote {
+          margin: 0 0 34px;
+          padding: 24px 28px;
+          background-color: #fdf3f2;
+          border-left: 2px solid var(--accent-500);
+        }
+
+        .about-quote-author {
+          display: block;
+          margin-bottom: 10px;
+          font-family: var(--font-sans);
+          font-size: 0.72rem;
+          color: var(--primary-700);
+          letter-spacing: 0.04em;
+        }
+
+        .about-quote blockquote {
+          margin: 0;
+          font-family: var(--font-serif);
+          font-size: clamp(1.3rem, 2vw, 1.65rem);
+          line-height: 1.25;
+          font-weight: 400;
+          color: var(--primary-700);
+        }
+
         @media (max-width: 768px) {
           .about-grid {
             grid-template-columns: 1fr;
@@ -131,6 +172,10 @@ export default function About() {
           .about-image-wrap {
             max-width: 380px;
             margin: 0 auto;
+          }
+
+          .about-quote {
+            padding: 20px;
           }
         }
       `}</style>
