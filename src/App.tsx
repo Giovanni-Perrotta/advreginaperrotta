@@ -5,6 +5,7 @@ import PracticeAreas from './components/PracticeAreas';
 import Commitment from './components/Commitment';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import Contact from './components/Contact';
 import Privacy from './components/Privacy';
 
 export default function App() {
@@ -15,6 +16,16 @@ export default function App() {
       <>
         <Header />
         <Privacy />
+        <Footer />
+      </>
+    );
+  }
+
+  if (path === '/contato') {
+    return (
+      <>
+        <Header />
+        <Contact />
         <Footer />
       </>
     );
