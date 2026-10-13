@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer id="rodape" className="footer">
+    <footer id="contato" className="footer">
       <div className="container">
         <div className="footer-grid">
 
@@ -16,10 +16,10 @@ export default function Footer() {
             <h4 className="footer-col-title">Contato</h4>
 
             <div className="footer-contact-item">
-              <span className="footer-contact-label">Telefone</span>
+              <span className="footer-contact-label">WhatsApp</span>
 
               <a
-                href="https://wa.me/551195494265"
+                href="https://wa.me/551195494265?text=Ol%C3%A1%2C%20Dra.%20Regina.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico."
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -27,7 +27,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://wa.me/5544997754951"
+                href="https://wa.me/5544997754951?text=Ol%C3%A1%2C%20Dra.%20Regina.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico."
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -81,7 +81,7 @@ export default function Footer() {
 
       <style>{`
         .footer {
-          background-color: var(--primary-900);
+          background-color: #7f3438;
           padding: 80px 0 32px;
           color: rgba(255,255,255,0.7);
         }
@@ -100,10 +100,10 @@ export default function Footer() {
         }
 
         .footer-logo {
-          width: 150px;
-          height: 150px;
-          object-fit: contain;
+          width: 134px;
+          height: auto;
           display: block;
+          object-fit: contain;
         }
 
         .footer-col-title {
@@ -123,16 +123,16 @@ export default function Footer() {
         .footer-contact-label {
           display: block;
           font-size: 0.75rem;
-          color: rgba(255,255,255,0.4);
+          color: rgba(255,255,255,0.45);
           margin-bottom: 6px;
         }
 
         .footer-contact-item a {
           display: block;
           font-size: 0.92rem;
-          color: rgba(255,255,255,0.7);
+          color: rgba(255,255,255,0.8);
           transition: color 0.3s ease;
-          margin-bottom: 2px;
+          margin-bottom: 4px;
           text-decoration: none;
         }
 
@@ -142,7 +142,7 @@ export default function Footer() {
 
         .footer-address {
           font-size: 0.9rem;
-          color: rgba(255,255,255,0.6);
+          color: rgba(255,255,255,0.75);
           line-height: 1.7;
           margin-bottom: 20px;
         }
@@ -155,7 +155,7 @@ export default function Footer() {
 
         .footer-link {
           font-size: 0.85rem;
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.6);
           transition: color 0.3s ease;
           text-decoration: none;
         }
@@ -166,24 +166,28 @@ export default function Footer() {
 
         .footer-bottom {
           padding-top: 32px;
-          border-top: 1px solid rgba(255,255,255,0.08);
+          border-top: 1px solid rgba(255,255,255,0.18);
         }
 
         .footer-bottom p {
           font-size: 0.8rem;
-          color: rgba(255,255,255,0.35);
+          color: rgba(255,255,255,0.5);
           text-align: center;
+          margin: 0;
         }
 
         @media (max-width: 768px) {
+          .footer {
+            padding: 60px 0 28px;
+          }
+
           .footer-grid {
             grid-template-columns: 1fr;
             gap: 36px;
           }
 
           .footer-logo {
-            width: 130px;
-            height: 130px;
+            width: 140px;
           }
         }
       `}</style>
