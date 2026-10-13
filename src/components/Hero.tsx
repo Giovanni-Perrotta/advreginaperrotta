@@ -5,36 +5,47 @@ export default function Hero() {
       <div className="hero-overlay" />
 
       <div className="hero-content">
-        <div className="hero-tag">
-          <span className="hero-tag-line" />
-          Assistência Jurídica Especializada
+        <div className="hero-copy">
+          <div className="hero-tag">
+            <span className="hero-tag-line" />
+            Assistência Jurídica Especializada
+          </div>
+
+          <h1 className="hero-title">
+            Defesa da cidadania,<br />
+            dos direitos humanos<br />
+            e do interesse público
+          </h1>
+
+          <p className="hero-subtitle">
+            Atuação em Direito Administrativo, Constitucional, Ambiental e
+            Civil — com ética, transparência e compromisso com a efetividade
+            dos direitos fundamentais.
+          </p>
+
+          <div className="hero-actions">
+            <a href="#atuacoes" className="btn btn-primary">
+              Áreas de Atuação
+            </a>
+
+            <a
+              href="#contato"
+              className="btn btn-outline hero-btn-light"
+            >
+              Entrar em Contato
+            </a>
+          </div>
         </div>
 
-        <h1 className="hero-title">
-          Defesa dos seus direitos
-          <br />
-          com atuação jurídica
-          <br />
-          especializada
-        </h1>
-
-        <p className="hero-subtitle">
-          Atuação jurídica voltada à proteção dos direitos do cidadão,
-          especialmente nas áreas de Direito Administrativo, Constitucional,
-          Ambiental e Civil.
-        </p>
-
-        <div className="hero-actions">
-          <a href="#atuacoes" className="btn btn-primary">
-            Áreas de Atuação
-          </a>
-
-          <a
-            href="#contato"
-            className="btn btn-outline hero-btn-light"
-          >
-            Entrar em Contato
-          </a>
+        <div className="hero-photo">
+          <div className="hero-photo-frame">
+            <img
+              src="/regina.png"
+              alt="Dra. Regina Perrotta"
+              className="hero-photo-image"
+            />
+          </div>
+          <div className="hero-photo-accent" />
         </div>
       </div>
 
@@ -56,7 +67,7 @@ export default function Hero() {
         .hero-bg {
           position: absolute;
           inset: 0;
-          background-image: url('https://static.wixstatic.com/media/3e60d9_c7637ebd2eec4ba1a50316936e7cf4e0~mv2.jpg');
+          background-image: url('https://images.pexels.com/photos/6077091/pexels-photo-6077091.jpeg?auto=compress&cs=tinysrgb&h=900&w=1600');
           background-size: cover;
           background-position: center;
           animation: scaleIn 1.2s ease;
@@ -66,10 +77,10 @@ export default function Hero() {
           position: absolute;
           inset: 0;
           background: linear-gradient(
-            135deg,
-            rgba(74, 14, 18, 0.92) 0%,
-            rgba(74, 14, 18, 0.78) 50%,
-            rgba(74, 14, 18, 0.88) 100%
+            90deg,
+            rgba(74, 14, 18, 0.97) 0%,
+            rgba(74, 14, 18, 0.94) 48%,
+            rgba(74, 14, 18, 0.78) 100%
           );
         }
 
@@ -80,6 +91,15 @@ export default function Hero() {
           margin: 0 auto;
           padding: 0 24px;
           width: 100%;
+          display: grid;
+          grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+          align-items: center;
+          gap: 60px;
+        }
+
+        .hero-copy {
+          position: relative;
+          z-index: 2;
         }
 
         .hero-tag {
@@ -114,7 +134,7 @@ export default function Hero() {
 
         .hero-subtitle {
           font-size: 1.05rem;
-          color: rgba(255, 255, 255, 0.75);
+          color: rgba(255,255,255,0.75);
           max-width: 560px;
           margin-bottom: 40px;
           line-height: 1.7;
@@ -130,13 +150,50 @@ export default function Hero() {
 
         .hero-btn-light {
           color: #fff;
-          border-color: rgba(255, 255, 255, 0.35);
+          border-color: rgba(255,255,255,0.35);
         }
 
         .hero-btn-light:hover {
           background-color: #fff;
           color: var(--primary-900);
           border-color: #fff;
+        }
+
+        .hero-photo {
+          position: relative;
+          justify-self: end;
+          width: min(100%, 430px);
+          animation: fadeIn 1s ease 0.5s both;
+        }
+
+        .hero-photo-frame {
+          position: relative;
+          z-index: 1;
+          overflow: hidden;
+          border-radius: 180px 180px 18px 18px;
+          border: 1px solid rgba(255,255,255,0.18);
+          box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+          background: rgba(255,255,255,0.05);
+        }
+
+        .hero-photo-image {
+          display: block;
+          width: 100%;
+          height: auto;
+          aspect-ratio: 3 / 4;
+          object-fit: cover;
+          object-position: center top;
+        }
+
+        .hero-photo-accent {
+          position: absolute;
+          right: -18px;
+          bottom: -18px;
+          width: 70%;
+          height: 70%;
+          border: 2px solid var(--accent-500);
+          border-radius: 18px;
+          z-index: 0;
         }
 
         .hero-scroll {
@@ -148,7 +205,7 @@ export default function Hero() {
           flex-direction: column;
           align-items: center;
           gap: 10px;
-          z-index: 1;
+          z-index: 2;
           animation: fadeIn 1.5s ease 1s both;
         }
 
@@ -156,7 +213,7 @@ export default function Hero() {
           font-size: 0.7rem;
           letter-spacing: 0.15em;
           text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.5);
+          color: rgba(255,255,255,0.5);
         }
 
         .hero-scroll-line {
@@ -164,7 +221,7 @@ export default function Hero() {
           height: 50px;
           background: linear-gradient(
             to bottom,
-            rgba(255, 255, 255, 0.5),
+            rgba(255,255,255,0.5),
             transparent
           );
           position: relative;
@@ -186,8 +243,7 @@ export default function Hero() {
         }
 
         @keyframes scrollHint {
-          0%,
-          100% {
+          0%, 100% {
             transform: translateY(0);
             opacity: 1;
           }
@@ -198,17 +254,37 @@ export default function Hero() {
           }
         }
 
+        @media (max-width: 900px) {
+          .hero-content {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+
+          .hero-photo {
+            justify-self: center;
+            width: min(75vw, 360px);
+          }
+
+          .hero-copy {
+            text-align: center;
+          }
+
+          .hero-tag {
+            justify-content: center;
+          }
+
+          .hero-actions {
+            justify-content: center;
+          }
+        }
+
         @media (max-width: 768px) {
           .hero {
-            padding: 110px 0 70px;
+            padding: 110px 0 60px;
           }
 
-          .hero-title {
-            font-size: clamp(2rem, 10vw, 3.2rem);
-          }
-
-          .hero-subtitle {
-            font-size: 0.98rem;
+          .hero-photo {
+            width: min(78vw, 330px);
           }
 
           .hero-scroll {
