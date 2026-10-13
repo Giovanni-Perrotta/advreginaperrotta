@@ -67,12 +67,15 @@ export default function About() {
       <style>{`
         .about {
           background-color: var(--neutral-50);
-          padding: 110px 0;
+          padding: 80px 0 70px;
+          height: auto !important;
+          min-height: 0 !important;
         }
 
         .about-content {
           max-width: 900px;
           margin: 0 auto;
+          height: auto;
         }
 
         .about-header {
@@ -91,7 +94,7 @@ export default function About() {
 
         .about-quote {
           max-width: 760px;
-          margin: 0 auto 52px;
+          margin: 0 auto 42px;
           padding: 30px 36px;
           background-color: #fdf3f2;
           border-left: 2px solid var(--accent-500);
@@ -139,7 +142,7 @@ export default function About() {
 
         @media (max-width: 768px) {
           .about {
-            padding: 80px 24px;
+            padding: 70px 24px 60px;
           }
 
           .about-quote {
