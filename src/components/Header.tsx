@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'Atuações', href: '#atuacoes' },
   { label: 'Comprometimento', href: '#comprometimento' },
   { label: 'FAQ', href: '#faq' },
-  { label: 'Contato', href: '/contato' },
+  { label: 'Contato', href: '#contato' },
 ];
 
 export default function Header() {
