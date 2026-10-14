@@ -8,26 +8,10 @@ import Footer from './components/Footer';
 import Contact from './components/Contact';
 import Privacy from './components/Privacy';
 
-function getBasePath() {
-  if (window.location.hostname === 'giovanni-perrotta.github.io') {
-    return '/advreginaperrotta/';
-  }
-
-  return '/';
-}
-
 export default function App() {
-  const basePath = getBasePath();
+  const hash = window.location.hash;
 
-  let path = window.location.pathname;
-
-  if (basePath !== '/') {
-    path = path.replace(basePath.replace(/\/$/, ''), '');
-  }
-
-  path = path.replace(/\/$/, '') || '/';
-
-  if (path === '/privacidade') {
+  if (hash === '#/privacidade') {
     return (
       <>
         <Header />
@@ -37,7 +21,7 @@ export default function App() {
     );
   }
 
-  if (path === '/contato') {
+  if (hash === '#/contato') {
     return (
       <>
         <Header />
