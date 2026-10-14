@@ -65,7 +65,7 @@ export default function Contact() {
           <div className="contact-details">
 
             <div className="contact-detail">
-              <span className="contact-detail-label">Telefone</span>
+              <span className="contact-detail-label">WhatsApp</span>
 
               <a
                 href="https://wa.me/5511954094265?text=Ol%C3%A1%2C%20Dra.%20Regina.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico."
@@ -98,15 +98,37 @@ export default function Contact() {
 
             <div className="contact-detail">
               <span className="contact-detail-label">
-                Endereço profissional
+                Registro profissional
               </span>
 
               <p>
+                OAB/SP 545130
+                <br />
+                OAB/PR 137462
+              </p>
+            </div>
+
+            <div className="contact-detail">
+              <span className="contact-detail-label">
+                Endereços profissionais
+              </span>
+
+              <p>
+                <strong>São Paulo</strong>
+                <br />
                 Rua Prof. Luiz Eulálio Bueno Vidigal, 175 — sala 1087
                 <br />
                 Osasco — SP
                 <br />
                 CEP: 06093-085
+              </p>
+
+              <p className="contact-address-secondary">
+                <strong>Paraná</strong>
+                <br />
+                R. Antônio Buzignani, 85 — Vila Operária — Paranavaí
+                <br />
+                CEP: 87708-280
               </p>
             </div>
 
@@ -117,6 +139,7 @@ export default function Contact() {
 
           <div className="contact-form-header">
             <h2>Fale comigo</h2>
+
             <p>
               Preencha os dados abaixo e envie sua mensagem.
             </p>
@@ -245,7 +268,7 @@ export default function Contact() {
             {error && (
               <div className="form-error">
                 Não foi possível enviar a mensagem. Tente novamente ou entre
-                em contato pelo telefone ou e-mail.
+                em contato pelo WhatsApp ou e-mail.
               </div>
             )}
 
@@ -321,6 +344,15 @@ export default function Contact() {
           color: var(--neutral-700);
           text-decoration: none;
           margin: 0;
+        }
+
+        .contact-detail p strong {
+          font-weight: 600;
+          color: var(--primary-700);
+        }
+
+        .contact-address-secondary {
+          margin-top: 18px !important;
         }
 
         .contact-detail a:hover {
