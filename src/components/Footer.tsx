@@ -3,6 +3,14 @@ export default function Footer() {
     ? '/advreginaperrotta/'
     : '/';
 
+  const handlePrivacyNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    event.preventDefault();
+
+    window.location.hash = '/privacidade';
+  };
+
   return (
     <footer id="contato" className="footer">
       <div className="container">
@@ -89,6 +97,7 @@ export default function Footer() {
             <div className="footer-links">
               <a
                 href="#/privacidade"
+                onClick={handlePrivacyNavigation}
                 className="footer-link"
               >
                 Política de Privacidade
