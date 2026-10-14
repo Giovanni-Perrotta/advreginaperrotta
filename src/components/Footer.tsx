@@ -1,4 +1,8 @@
 export default function Footer() {
+  const basePath = window.location.hostname.endsWith('github.io')
+    ? '/advreginaperrotta/'
+    : '/';
+
   return (
     <footer id="contato" className="footer">
       <div className="container">
@@ -6,7 +10,7 @@ export default function Footer() {
 
           <div className="footer-brand">
             <img
-              src={`${import.meta.env.BASE_URL}logo.png`}
+              src={`${basePath}logo.png`}
               alt="Dra. Regina Perrotta"
               className="footer-logo"
             />
@@ -84,7 +88,7 @@ export default function Footer() {
 
             <div className="footer-links">
               <a
-                href={`${import.meta.env.BASE_URL}privacidade`}
+                href={`${basePath}privacidade`}
                 className="footer-link"
               >
                 Política de Privacidade
