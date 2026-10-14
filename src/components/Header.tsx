@@ -96,6 +96,15 @@ export default function Header() {
     window.location.href = getBasePath();
   };
 
+  const handleContactNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    event.preventDefault();
+    closeMenu();
+
+    window.location.hash = '/contato';
+  };
+
   return (
     <header className={`header ${scrolled ? 'header-scrolled' : ''}`}>
       <div className="header-inner">
@@ -135,7 +144,7 @@ export default function Header() {
 
           <a
             href="#/contato"
-            onClick={closeMenu}
+            onClick={handleContactNavigation}
             className="header-nav-link"
           >
             Contato
