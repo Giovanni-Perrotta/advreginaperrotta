@@ -120,6 +120,7 @@ export default function Footer() {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          justify-content: flex-start;
         }
 
         .footer-logo {
@@ -127,16 +128,23 @@ export default function Footer() {
           height: auto;
           display: block;
           object-fit: contain;
-          margin-bottom: 22px;
+          margin: 0 0 18px 0;
         }
 
         .footer-oab {
           display: flex;
           flex-direction: column;
-          gap: 5px;
+          gap: 6px;
+          margin: 0;
           font-size: 0.8rem;
-          color: rgba(255,255,255,0.72);
-          letter-spacing: 0.04em;
+          line-height: 1.4;
+          color: rgba(255,255,255,0.78);
+          letter-spacing: 0.02em;
+        }
+
+        .footer-oab span {
+          display: block;
+          margin: 0;
         }
 
         .footer-col-title {
