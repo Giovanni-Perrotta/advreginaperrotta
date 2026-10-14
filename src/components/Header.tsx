@@ -16,40 +16,33 @@ function getBasePath() {
   return '/';
 }
 
-function getContactPath() {
-  return `${getBasePath()}contato`;
-}
-
-function isContactPage() {
-  const basePath = getBasePath();
-
-  let path = window.location.pathname;
-
-  if (basePath !== '/') {
-    path = path.replace(basePath.replace(/\/$/, ''), '');
-  }
-
-  return path.replace(/\/$/, '') === '/contato';
+function isSpecialPage() {
+  return (
+    window.location.hash === '#/contato' ||
+    window.location.hash === '#/privacidade'
+  );
 }
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(() => {
-    return window.scrollY > 60 || isContactPage();
+    return window.scrollY > 60 || isSpecialPage();
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 60 || isContactPage());
+      setScrolled(window.scrollY > 60 || isSpecialPage());
     };
 
     onScroll();
 
     window.addEventListener('scroll', onScroll);
+    window.addEventListener('hashchange', onScroll);
 
     return () => {
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('hashchange', onScroll);
     };
   }, []);
 
@@ -74,17 +67,11 @@ export default function Header() {
     event: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    if (!href.startsWith('#')) {
-      return;
-    }
-
     event.preventDefault();
     closeMenu();
 
-    const basePath = getBasePath();
-
-    if (isContactPage()) {
-      window.location.href = `${basePath}${href}`;
+    if (isSpecialPage()) {
+      window.location.href = `${getBasePath()}${href}`;
       return;
     }
 
@@ -97,8 +84,6 @@ export default function Header() {
       });
 
       window.history.replaceState(null, '', href);
-    } else {
-      window.location.href = `${basePath}${href}`;
     }
   };
 
@@ -108,25 +93,7 @@ export default function Header() {
     event.preventDefault();
     closeMenu();
 
-    const basePath = getBasePath();
-
-    if (isContactPage()) {
-      window.location.href = basePath;
-      return;
-    }
-
-    const target = document.querySelector('#inicio');
-
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-
-      window.history.replaceState(null, '', '#inicio');
-    } else {
-      window.location.href = basePath;
-    }
+    window.location.href = getBasePath();
   };
 
   return (
@@ -167,7 +134,7 @@ export default function Header() {
           ))}
 
           <a
-            href={getContactPath()}
+            href="#/contato"
             onClick={closeMenu}
             className="header-nav-link"
           >
