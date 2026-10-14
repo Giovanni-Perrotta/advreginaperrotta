@@ -70,7 +70,7 @@ export default function Hero() {
         .hero-bg {
           position: absolute;
           inset: 0;
-          background-image: url('/advreginaperrotta/logo1.jpeg');
+          background-image: url('${import.meta.env.BASE_URL}logo1.jpeg');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -183,7 +183,7 @@ export default function Hero() {
         .hero-photo-image {
           width: 100%;
           height: 560px;
-          background-image: url('/advreginaperrotta/regina.png');
+          background-image: url('${import.meta.env.BASE_URL}regina.png');
           background-size: cover;
           background-position: center top;
           background-repeat: no-repeat;
