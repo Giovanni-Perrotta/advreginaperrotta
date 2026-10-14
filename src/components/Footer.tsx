@@ -88,7 +88,7 @@ export default function Footer() {
 
             <div className="footer-links">
               <a
-                href={`${basePath}privacidade`}
+                href="#/privacidade"
                 className="footer-link"
               >
                 Política de Privacidade
