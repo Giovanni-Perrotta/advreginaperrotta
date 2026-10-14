@@ -10,6 +10,11 @@ export default function Footer() {
               alt="Dra. Regina Perrotta"
               className="footer-logo"
             />
+
+            <div className="footer-oab">
+              <span>OAB/SP 545130</span>
+              <span>OAB/PR 137462</span>
+            </div>
           </div>
 
           <div className="footer-col">
@@ -49,15 +54,33 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4 className="footer-col-title">Endereço</h4>
+            <h4 className="footer-col-title">Endereços</h4>
 
-            <p className="footer-address">
-              Rua Prof. Luiz Eulálio Bueno Vidigal, 175 — sala 1087
-              <br />
-              Osasco — SP
-              <br />
-              CEP: 06093-085
-            </p>
+            <div className="footer-address-block">
+              <span className="footer-address-label">
+                São Paulo
+              </span>
+
+              <p className="footer-address">
+                Rua Prof. Luiz Eulálio Bueno Vidigal, 175 — sala 1087
+                <br />
+                Osasco — SP
+                <br />
+                CEP: 06093-085
+              </p>
+            </div>
+
+            <div className="footer-address-block">
+              <span className="footer-address-label">
+                Paraná
+              </span>
+
+              <p className="footer-address">
+                R. Antônio Buzignani, 85 — Vila Operária — Paranavaí
+                <br />
+                CEP: 87708-280
+              </p>
+            </div>
 
             <div className="footer-links">
               <a
@@ -87,7 +110,7 @@ export default function Footer() {
 
         .footer-grid {
           display: grid;
-          grid-template-columns: 1.5fr 1fr 1fr;
+          grid-template-columns: 1.25fr 1fr 1.25fr;
           gap: 48px;
           margin-bottom: 56px;
           align-items: start;
@@ -95,6 +118,7 @@ export default function Footer() {
 
         .footer-brand {
           display: flex;
+          flex-direction: column;
           align-items: flex-start;
         }
 
@@ -103,6 +127,16 @@ export default function Footer() {
           height: auto;
           display: block;
           object-fit: contain;
+          margin-bottom: 22px;
+        }
+
+        .footer-oab {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          font-size: 0.8rem;
+          color: rgba(255,255,255,0.72);
+          letter-spacing: 0.04em;
         }
 
         .footer-col-title {
@@ -119,7 +153,8 @@ export default function Footer() {
           margin-bottom: 20px;
         }
 
-        .footer-contact-label {
+        .footer-contact-label,
+        .footer-address-label {
           display: block;
           font-size: 0.75rem;
           color: rgba(255,255,255,0.45);
@@ -139,17 +174,22 @@ export default function Footer() {
           color: var(--accent-400);
         }
 
+        .footer-address-block {
+          margin-bottom: 20px;
+        }
+
         .footer-address {
           font-size: 0.9rem;
           color: rgba(255,255,255,0.75);
           line-height: 1.7;
-          margin-bottom: 20px;
+          margin: 0;
         }
 
         .footer-links {
           display: flex;
           flex-direction: column;
           gap: 8px;
+          margin-top: 8px;
         }
 
         .footer-link {
