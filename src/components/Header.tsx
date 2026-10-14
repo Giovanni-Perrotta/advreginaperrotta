@@ -6,25 +6,42 @@ const navLinks = [
   { label: 'Atuações', href: '#atuacoes' },
   { label: 'Comprometimento', href: '#comprometimento' },
   { label: 'FAQ', href: '#faq' },
-  { label: 'Contato', href: '/contato' },
 ];
+
+function getBasePath() {
+  if (window.location.hostname === 'giovanni-perrotta.github.io') {
+    return '/advreginaperrotta/';
+  }
+
+  return '/';
+}
+
+function getContactPath() {
+  return `${getBasePath()}contato`;
+}
+
+function isContactPage() {
+  const basePath = getBasePath();
+
+  let path = window.location.pathname;
+
+  if (basePath !== '/') {
+    path = path.replace(basePath.replace(/\/$/, ''), '');
+  }
+
+  return path.replace(/\/$/, '') === '/contato';
+}
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(() => {
-    return (
-      window.scrollY > 60 ||
-      window.location.pathname === '/contato'
-    );
+    return window.scrollY > 60 || isContactPage();
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(
-        window.scrollY > 60 ||
-        window.location.pathname === '/contato'
-      );
+      setScrolled(window.scrollY > 60 || isContactPage());
     };
 
     onScroll();
@@ -53,13 +70,62 @@ export default function Header() {
     setMenuOpen(false);
   };
 
-  const handleHomeNavigation = (
+  const handleSectionNavigation = (
     event: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    if (href.startsWith('#') && window.location.pathname !== '/') {
-      event.preventDefault();
-      window.location.href = `/${href}`;
+    if (!href.startsWith('#')) {
+      return;
+    }
+
+    event.preventDefault();
+    closeMenu();
+
+    const basePath = getBasePath();
+
+    if (isContactPage()) {
+      window.location.href = `${basePath}${href}`;
+      return;
+    }
+
+    const target = document.querySelector(href);
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+
+      window.history.replaceState(null, '', href);
+    } else {
+      window.location.href = `${basePath}${href}`;
+    }
+  };
+
+  const handleLogoClick = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    event.preventDefault();
+    closeMenu();
+
+    const basePath = getBasePath();
+
+    if (isContactPage()) {
+      window.location.href = basePath;
+      return;
+    }
+
+    const target = document.querySelector('#inicio');
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+
+      window.history.replaceState(null, '', '#inicio');
+    } else {
+      window.location.href = basePath;
     }
   };
 
@@ -68,9 +134,9 @@ export default function Header() {
       <div className="header-inner">
 
         <a
-          href="/"
+          href={getBasePath()}
           className="header-logo"
-          onClick={closeMenu}
+          onClick={handleLogoClick}
           aria-label="Regina Perrotta Advocacia - Início"
         >
           <span className="header-logo-serif">
@@ -83,6 +149,7 @@ export default function Header() {
         </a>
 
         <nav
+          id="menu-principal"
           className={`header-nav ${menuOpen ? 'open' : ''}`}
           aria-label="Navegação principal"
         >
@@ -90,15 +157,22 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              onClick={(event) => {
-                closeMenu();
-                handleHomeNavigation(event, link.href);
-              }}
+              onClick={(event) =>
+                handleSectionNavigation(event, link.href)
+              }
               className="header-nav-link"
             >
               {link.label}
             </a>
           ))}
+
+          <a
+            href={getContactPath()}
+            onClick={closeMenu}
+            className="header-nav-link"
+          >
+            Contato
+          </a>
         </nav>
 
         {menuOpen && (
