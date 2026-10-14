@@ -6,7 +6,7 @@ export default function Footer() {
 
           <div className="footer-brand">
             <img
-              src="/logo.png"
+              src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Dra. Regina Perrotta"
               className="footer-logo"
             />
@@ -84,7 +84,7 @@ export default function Footer() {
 
             <div className="footer-links">
               <a
-                href="/privacidade"
+                href={`${import.meta.env.BASE_URL}privacidade`}
                 className="footer-link"
               >
                 Política de Privacidade
