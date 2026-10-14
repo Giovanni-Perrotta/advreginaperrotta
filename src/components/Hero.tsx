@@ -70,9 +70,10 @@ export default function Hero() {
         .hero-bg {
           position: absolute;
           inset: 0;
-          background-image: url('https://images.pexels.com/photos/6077091/pexels-photo-6077091.jpeg?auto=compress&cs=tinysrgb&h=900&w=1600');
+          background-image: url('/logo1.jpeg');
           background-size: cover;
           background-position: center;
+          background-repeat: no-repeat;
           animation: scaleIn 1.2s ease;
         }
 
@@ -81,9 +82,9 @@ export default function Hero() {
           inset: 0;
           background: linear-gradient(
             90deg,
-            rgba(74, 14, 18, 0.97) 0%,
-            rgba(74, 14, 18, 0.94) 48%,
-            rgba(74, 14, 18, 0.78) 100%
+            rgba(74, 14, 18, 0.72) 0%,
+            rgba(74, 14, 18, 0.62) 48%,
+            rgba(74, 14, 18, 0.48) 100%
           );
         }
 
@@ -137,7 +138,7 @@ export default function Hero() {
 
         .hero-subtitle {
           font-size: 1.05rem;
-          color: rgba(255,255,255,0.75);
+          color: rgba(255,255,255,0.82);
           max-width: 560px;
           margin-bottom: 40px;
           line-height: 1.7;
@@ -153,7 +154,7 @@ export default function Hero() {
 
         .hero-btn-light {
           color: #fff;
-          border-color: rgba(255,255,255,0.35);
+          border-color: rgba(255,255,255,0.45);
         }
 
         .hero-btn-light:hover {
@@ -205,7 +206,7 @@ export default function Hero() {
           font-size: 0.7rem;
           letter-spacing: 0.15em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.6);
         }
 
         .hero-scroll-line {
