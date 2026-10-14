@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,23 +11,36 @@ import Contact from './components/Contact';
 import Privacy from './components/Privacy';
 
 export default function App() {
-  const hash = window.location.hash;
+  const [hash, setHash] = useState(() => window.location.hash);
 
-  if (hash === '#/privacidade') {
-    return (
-      <>
-        <Header />
-        <Privacy />
-        <Footer />
-      </>
-    );
-  }
+  useEffect(() => {
+    const handleHashChange = () => {
+      setHash(window.location.hash);
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 
   if (hash === '#/contato') {
     return (
       <>
         <Header />
         <Contact />
+        <Footer />
+      </>
+    );
+  }
+
+  if (hash === '#/privacidade') {
+    return (
+      <>
+        <Header />
+        <Privacy />
         <Footer />
       </>
     );
