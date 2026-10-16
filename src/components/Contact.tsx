@@ -1,112 +1,96 @@
+import { FormEvent, useState } from 'react';
 
-        .form-field input,
-        .form-field textarea {
-          width: 100%;
-          box-sizing: border-box;
-          border: 1px solid var(--neutral-300);
-          background-color: #fff;
-          padding: 12px 13px;
-          font-family: var(--font-sans);
-          font-size: 0.9rem;
-          color: var(--neutral-700);
-          outline: none;
-          transition:
-            border-color 0.3s ease,
-            box-shadow 0.3s ease;
+export default function Contact() {
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    setSending(true);
+    setSent(false);
+    setError(false);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    formData.append(
+      '_subject',
+      'Novo contato pelo site — Regina Perrotta Advocacia'
+    );
+    formData.append('_template', 'table');
+    formData.append('_captcha', 'false');
+    formData.append('_replyto', String(formData.get('E-mail') || ''));
+
+    try {
+      const response = await fetch(
+        'https://formsubmit.co/ajax/regislegisassessoria@gmail.com',
+        {
+          method: 'POST',
+          body: formData,
+          headers: {
+            Accept: 'application/json',
+          },
         }
+      );
 
-        .form-field textarea {
-          resize: vertical;
-          min-height: 130px;
-        }
+      if (!response.ok) {
+        throw new Error('Erro ao enviar formulário');
+      }
 
-        .form-field input:focus,
-        .form-field textarea:focus {
-          border-color: var(--primary-600);
-          box-shadow: 0 0 0 2px rgba(74, 14, 18, 0.08);
-        }
+      const result = await response.json();
+      if (result.success !== 'true' && result.success !== true) {
+        throw new Error('Envio não confirmado pelo serviço');
+      }
 
-        .form-field input::placeholder,
-        .form-field textarea::placeholder {
-          color: var(--neutral-400);
-        }
+      form.reset();
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
+  }
 
-        .contact-submit {
-          width: 100%;
-          border: none;
-          background-color: var(--primary-700);
-          color: #fff;
-          padding: 14px 20px;
-          font-family: var(--font-sans);
-          font-size: 0.85rem;
-          cursor: pointer;
-          transition:
-            background-color 0.3s ease,
-            opacity 0.3s ease;
-        }
+  return (
+    <section id="contato" className="contact">
+      <div className="contact-container">
 
-        .contact-submit:hover {
-          background-color: var(--primary-900);
-        }
+        <div className="contact-intro">
+          <span className="section-label">Contato</span>
 
-        .contact-submit:disabled {
-          opacity: 0.6;
-          cursor: wait;
-        }
+          <h1>Entre em contato</h1>
 
-        .form-success {
-          padding: 12px 14px;
-          background-color: #eef7ef;
-          border: 1px solid #c8dfca;
-          color: #315d36;
-          font-size: 0.85rem;
-          line-height: 1.5;
-        }
+          <p>
+            Para informações, orientações e atendimento jurídico, entre em
+            contato pelos canais abaixo.
+          </p>
 
-        .form-error {
-          padding: 12px 14px;
-          background-color: #fff1f1;
-          border: 1px solid #e1bcbc;
-          color: #7a2020;
-          font-size: 0.85rem;
-          line-height: 1.5;
-        }
+          <div className="contact-details">
 
-        @media (max-width: 900px) {
-          .contact {
-            padding: 130px 0 80px;
-          }
+            <div className="contact-detail">
+              <span className="contact-detail-label">WhatsApp</span>
 
-          .contact-container {
-            grid-template-columns: 1fr;
-            gap: 56px;
-          }
+              <a
+                href="https://wa.me/5511954094265?text=Ol%C3%A1%2C%20Dra.%20Regina.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                11 95409-4265
+              </a>
 
-          .contact-form-wrap {
-            padding: 36px;
-            order: 1;
-          }
+              <a
+                href="https://wa.me/5544997754951?text=Ol%C3%A1%2C%20Dra.%20Regina.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                44 99775-4951
+              </a>
+            </div>
 
-          .contact-intro {
-            order: 2;
-          }
-        }
+            <div className="contact-detail">
+              <span className="contact-detail-label">E-mail</span>
 
-        @media (max-width: 600px) {
-          .contact-container {
-            padding: 0 20px;
-          }
-
-          .form-row {
-            grid-template-columns: 1fr;
-            gap: 18px;
-          }
-
-          .contact-form-wrap {
-            padding: 28px 22px;
-          }
-        }
-      `}</style>
-    </section>
-  );
-}
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=regislegisassessoria@gmail.com"
