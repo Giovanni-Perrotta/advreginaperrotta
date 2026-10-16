@@ -62,6 +62,8 @@ export default function Hero() {
 
       <style>{`
         .hero {
+          width: 100%;
+          min-width: 0;
           min-height: 100vh;
           min-height: 100svh;
           display: flex;
@@ -78,6 +80,11 @@ export default function Hero() {
           box-sizing: border-box;
         }
 
+        .hero,
+        .hero * {
+          box-sizing: border-box;
+        }
+
         .hero-content {
           position: relative;
           z-index: 2;
@@ -85,17 +92,18 @@ export default function Hero() {
           margin: 0 auto;
           padding: 0 24px;
           width: 100%;
+          min-width: 0;
           display: grid;
           grid-template-columns:
             minmax(0, 1.15fr)
             minmax(0, 0.85fr);
           align-items: center;
           gap: clamp(30px, 5vw, 65px);
-          box-sizing: border-box;
         }
 
         .hero-copy {
           min-width: 0;
+          width: 100%;
           position: relative;
           z-index: 2;
         }
@@ -130,6 +138,7 @@ export default function Hero() {
           letter-spacing: -0.015em;
           margin: 0 0 26px;
           max-width: 700px;
+          overflow-wrap: break-word;
           animation: heroFadeUp 0.8s ease 0.15s both;
         }
 
@@ -140,6 +149,7 @@ export default function Hero() {
           max-width: 550px;
           margin: 0 0 35px;
           line-height: 1.8;
+          overflow-wrap: break-word;
           animation: heroFadeUp 0.8s ease 0.3s both;
         }
 
@@ -159,7 +169,6 @@ export default function Hero() {
           text-align: center;
           font-size: 0.88rem;
           text-decoration: none;
-          box-sizing: border-box;
         }
 
         .hero-btn-light {
@@ -253,13 +262,14 @@ export default function Hero() {
 
         @media (max-width: 900px) {
           .hero {
-            padding: 115px 0 65px;
-            min-height: auto;
+            min-height: 0;
+            display: block;
+            padding: 110px 0 60px;
           }
 
           .hero-content {
             grid-template-columns: minmax(0, 1fr);
-            gap: 42px;
+            gap: 38px;
             max-width: 650px;
           }
 
@@ -271,11 +281,7 @@ export default function Hero() {
             justify-content: center;
           }
 
-          .hero-title {
-            margin-left: auto;
-            margin-right: auto;
-          }
-
+          .hero-title,
           .hero-subtitle {
             margin-left: auto;
             margin-right: auto;
@@ -297,29 +303,44 @@ export default function Hero() {
 
         @media (max-width: 600px) {
           .hero {
-            padding: 105px 0 55px;
+            min-height: 0;
+            height: auto;
+            padding: 95px 0 45px;
           }
 
           .hero-content {
-            padding: 0 22px;
-            gap: 30px;
+            width: 100%;
+            max-width: 100%;
+            padding: 0 20px;
+            gap: 32px;
+            grid-template-columns: minmax(0, 1fr);
+          }
+
+          .hero-copy {
+            width: 100%;
+            min-width: 0;
+            text-align: center;
           }
 
           .hero-tag {
-            gap: 9px;
+            gap: 8px;
             font-size: 0.63rem;
-            letter-spacing: 0.11em;
-            margin-bottom: 22px;
+            letter-spacing: 0.08em;
+            line-height: 1.5;
+            margin-bottom: 18px;
+            justify-content: center;
           }
 
           .hero-tag-line {
-            width: 22px;
+            width: 18px;
           }
 
           .hero-title {
-            font-size: clamp(2rem, 8vw, 2.8rem);
-            line-height: 1.2;
-            margin-bottom: 20px;
+            font-size: clamp(1.95rem, 7.5vw, 2.65rem);
+            line-height: 1.17;
+            letter-spacing: -0.02em;
+            margin: 0 auto 18px;
+            max-width: 100%;
           }
 
           .hero-desktop-break {
@@ -328,17 +349,14 @@ export default function Hero() {
 
           .hero-subtitle {
             font-size: 0.94rem;
-            line-height: 1.75;
-            margin-bottom: 26px;
-          }
-
-          .hero-photo {
-            width: min(78vw, 320px);
+            line-height: 1.65;
+            margin: 0 auto 24px;
+            max-width: 100%;
           }
 
           .hero-actions {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: minmax(0, 1fr);
             gap: 12px;
             width: 100%;
             max-width: 340px;
@@ -350,16 +368,32 @@ export default function Hero() {
             min-height: 50px;
             font-size: 0.93rem;
             padding: 14px 20px;
+            white-space: normal;
+          }
+
+          .hero-photo {
+            width: min(76vw, 300px);
+            max-width: 100%;
+            justify-self: center;
+          }
+
+          .hero-photo-frame {
+            border-radius: 150px 150px 16px 16px;
           }
         }
 
         @media (max-width: 360px) {
+          .hero {
+            padding-top: 90px;
+          }
+
           .hero-content {
             padding: 0 16px;
+            gap: 28px;
           }
 
           .hero-title {
-            font-size: 1.9rem;
+            font-size: 1.85rem;
           }
 
           .hero-subtitle {
@@ -367,7 +401,7 @@ export default function Hero() {
           }
 
           .hero-photo {
-            width: min(82vw, 290px);
+            width: min(80vw, 280px);
           }
         }
 
