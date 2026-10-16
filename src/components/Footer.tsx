@@ -1,3 +1,4 @@
+
 export default function Footer() {
   const basePath = window.location.hostname.endsWith('github.io')
     ? '/advreginaperrotta/'
@@ -56,11 +57,11 @@ export default function Footer() {
               <span className="footer-contact-label">E-mail</span>
 
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=assistenciajuridica@advreginaperrotta.com.br"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=regislegisassessoria@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                assistenciajuridica@advreginaperrotta.com.br
+                regislegisassessoria@gmail.com
               </a>
             </div>
           </div>
@@ -189,6 +190,7 @@ export default function Footer() {
           transition: color 0.3s ease;
           margin-bottom: 4px;
           text-decoration: none;
+          overflow-wrap: anywhere;
         }
 
         .footer-contact-item a:hover {
