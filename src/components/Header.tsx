@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 
 const navLinks = [
@@ -9,11 +10,9 @@ const navLinks = [
 ];
 
 function getBasePath() {
-  if (window.location.hostname === 'giovanni-perrotta.github.io') {
-    return '/advreginaperrotta/';
-  }
-
-  return '/';
+  return window.location.hostname.endsWith('github.io')
+    ? '/advreginaperrotta/'
+    : '/';
 }
 
 function isSpecialPage() {
@@ -24,44 +23,44 @@ function isSpecialPage() {
 }
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(() => {
-    return window.scrollY > 60 || isSpecialPage();
-  });
-
+  const [scrolled, setScrolled] = useState(
+    () => window.scrollY > 60 || isSpecialPage()
+  );
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
+    const updateHeader = () => {
       setScrolled(window.scrollY > 60 || isSpecialPage());
     };
 
-    onScroll();
-
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('hashchange', onScroll);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader);
+    window.addEventListener('hashchange', updateHeader);
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('hashchange', onScroll);
+      window.removeEventListener('scroll', updateHeader);
+      window.removeEventListener('hashchange', updateHeader);
     };
   }, []);
 
   useEffect(() => {
-    if (!menuOpen) {
-      document.body.style.overflow = '';
-      return;
-    }
-
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
 
     return () => {
       document.body.style.overflow = '';
     };
   }, [menuOpen]);
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  useEffect(() => {
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    };
+
+    window.addEventListener('keydown', onEscape);
+    return () => window.removeEventListener('keydown', onEscape);
+  }, []);
+
+  const closeMenu = () => setMenuOpen(false);
 
   const handleSectionNavigation = (
     event: React.MouseEvent<HTMLAnchorElement>,
@@ -92,7 +91,6 @@ export default function Header() {
   ) => {
     event.preventDefault();
     closeMenu();
-
     window.location.href = getBasePath();
   };
 
@@ -101,26 +99,31 @@ export default function Header() {
   ) => {
     event.preventDefault();
     closeMenu();
-
     window.location.hash = '/contato';
   };
 
   return (
     <header className={`header ${scrolled ? 'header-scrolled' : ''}`}>
       <div className="header-inner">
-
         <a
           href={getBasePath()}
           className="header-logo"
           onClick={handleLogoClick}
-          aria-label="Regina Perrotta Advocacia - Início"
+          aria-label="Regina Perrotta Advocacia - Voltar ao início"
         >
-          <span className="header-logo-serif">
-            Regina Perrotta
-          </span>
+          <img
+            src={`${getBasePath()}headerLogo.png`}
+            alt=""
+            className="header-logo-image"
+          />
 
-          <span className="header-logo-sub">
-            Advocacia &amp; Cidadania
+          <span className="header-logo-text">
+            <span className="header-logo-serif">
+              Regina Perrotta
+            </span>
+            <span className="header-logo-sub">
+              Advocacia &amp; Cidadania
+            </span>
           </span>
         </a>
 
@@ -172,7 +175,6 @@ export default function Header() {
           <span />
           <span />
         </button>
-
       </div>
 
       <style>{`
@@ -182,16 +184,14 @@ export default function Header() {
           left: 0;
           right: 0;
           z-index: 100;
-          transition:
-            background-color 0.4s ease,
-            padding 0.4s ease,
-            box-shadow 0.4s ease;
-          padding: 20px 0;
+          padding: 16px 0;
+          background-color: rgba(74, 14, 18, 0.97);
+          transition: background-color 0.3s ease,
+            padding 0.3s ease, box-shadow 0.3s ease;
         }
 
         .header-scrolled {
-          background-color: rgba(74, 14, 18, 0.97);
-          padding: 12px 0;
+          padding: 10px 0;
           backdrop-filter: blur(10px);
           -webkit-backdrop-filter: blur(10px);
           box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -204,17 +204,35 @@ export default function Header() {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          gap: 24px;
           position: relative;
           z-index: 102;
         }
 
         .header-logo {
           display: flex;
-          flex-direction: column;
-          line-height: 1.3;
+          align-items: center;
+          gap: 12px;
+          flex-shrink: 0;
+          min-width: 0;
+          text-decoration: none;
           position: relative;
           z-index: 103;
-          text-decoration: none;
+        }
+
+        .header-logo-image {
+          width: 58px;
+          height: 58px;
+          object-fit: contain;
+          flex-shrink: 0;
+          border-radius: 5px;
+        }
+
+        .header-logo-text {
+          display: flex;
+          flex-direction: column;
+          line-height: 1.25;
+          min-width: 0;
         }
 
         .header-logo-serif {
@@ -223,52 +241,53 @@ export default function Header() {
           font-weight: 600;
           color: #fff;
           letter-spacing: 0.01em;
+          white-space: nowrap;
         }
 
         .header-logo-sub {
           font-family: var(--font-sans);
           font-size: 0.68rem;
           font-weight: 400;
-          letter-spacing: 0.22em;
+          letter-spacing: 0.19em;
           text-transform: uppercase;
-          color: var(--accent-400);
-          margin-top: 2px;
+          color: var(--accent-400, #c5a66b);
+          margin-top: 3px;
+          white-space: nowrap;
         }
 
         .header-nav {
           display: flex;
           align-items: center;
-          gap: 32px;
+          gap: 24px;
           position: relative;
           z-index: 103;
         }
 
         .header-nav-link {
           font-family: var(--font-sans);
-          font-size: 0.85rem;
+          font-size: 0.83rem;
           font-weight: 400;
-          color: rgba(255, 255, 255, 0.8);
-          transition:
-            color 0.3s ease,
-            opacity 0.3s ease;
+          color: rgba(255, 255, 255, 0.85);
           position: relative;
-          padding: 4px 0;
+          padding: 8px 0;
           text-decoration: none;
+          white-space: nowrap;
+          transition: color 0.3s ease;
+        }
+
+        .header-nav-link:hover {
+          color: #fff;
         }
 
         .header-nav-link::after {
           content: '';
           position: absolute;
-          bottom: 0;
+          bottom: 2px;
           left: 0;
           width: 0;
           height: 1px;
-          background-color: var(--accent-500);
+          background: var(--accent-500, #c5a66b);
           transition: width 0.3s ease;
-        }
-
-        .header-nav-link:hover {
-          color: #fff;
         }
 
         .header-nav-link:hover::after {
@@ -281,25 +300,24 @@ export default function Header() {
           justify-content: center;
           align-items: center;
           gap: 5px;
-          width: 42px;
-          height: 42px;
+          width: 44px;
+          height: 44px;
           padding: 8px;
           border: 0;
           background: transparent;
           cursor: pointer;
           position: relative;
-          z-index: 104;
+          z-index: 105;
+          flex-shrink: 0;
         }
 
         .header-burger span {
           display: block;
-          width: 26px;
+          width: 25px;
           height: 2px;
-          background-color: #fff;
-          transition:
-            transform 0.3s ease,
-            opacity 0.3s ease;
-          border-radius: 1px;
+          background: #fff;
+          border-radius: 2px;
+          transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .header-burger.open span:nth-child(1) {
@@ -318,59 +336,44 @@ export default function Header() {
           display: none;
         }
 
-        @media (max-width: 900px) {
-          .header {
-            padding: 16px 0;
-          }
-
-          .header-scrolled {
-            padding: 12px 0;
-          }
-
+        @media (max-width: 1050px) {
           .header-inner {
             padding: 0 20px;
-          }
-
-          .header-logo-serif {
-            font-size: 1.35rem;
-          }
-
-          .header-logo-sub {
-            font-size: 0.6rem;
-            letter-spacing: 0.18em;
           }
 
           .header-nav {
             position: fixed;
             top: 0;
             right: 0;
-            width: min(380px, 88vw);
+            width: min(360px, 88vw);
             height: 100vh;
-            background-color: var(--primary-900);
+            height: 100dvh;
+            background: #4a0e12;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 28px;
-            padding: 80px 32px 40px;
-            transform: translateX(100%);
-            transition: transform 0.4s ease;
+            gap: 24px;
+            padding: 85px 24px 35px;
+            transform: translateX(110%);
+            visibility: hidden;
+            pointer-events: none;
+            transition: transform 0.35s ease, visibility 0.35s;
             box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25);
             z-index: 103;
+            overflow-y: auto;
           }
 
           .header-nav.open {
             transform: translateX(0);
+            visibility: visible;
+            pointer-events: auto;
           }
 
           .header-nav-link {
-            font-size: 1.2rem;
             font-family: var(--font-serif);
-            color: rgba(255, 255, 255, 0.9);
-            padding: 6px 0;
-          }
-
-          .header-nav-link::after {
-            height: 2px;
+            font-size: 1.35rem;
+            padding: 7px 0;
+            color: #fff;
           }
 
           .header-burger {
@@ -381,7 +384,7 @@ export default function Header() {
             display: block;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.55);
             border: 0;
             padding: 0;
             cursor: pointer;
@@ -390,21 +393,55 @@ export default function Header() {
         }
 
         @media (max-width: 480px) {
+          .header {
+            padding: 10px 0;
+          }
+
+          .header-scrolled {
+            padding: 8px 0;
+          }
+
           .header-inner {
-            padding: 0 16px;
+            padding: 0 14px;
+            gap: 10px;
+          }
+
+          .header-logo {
+            gap: 8px;
+          }
+
+          .header-logo-image {
+            width: 43px;
+            height: 43px;
           }
 
           .header-logo-serif {
-            font-size: 1.2rem;
+            font-size: 1.12rem;
           }
 
           .header-logo-sub {
-            font-size: 0.55rem;
-            letter-spacing: 0.15em;
+            font-size: 0.49rem;
+            letter-spacing: 0.12em;
           }
 
           .header-nav {
-            width: 90vw;
+            width: min(330px, 90vw);
+          }
+        }
+
+        @media (max-width: 350px) {
+          .header-logo-image {
+            width: 36px;
+            height: 36px;
+          }
+
+          .header-logo-serif {
+            font-size: 1rem;
+          }
+
+          .header-logo-sub {
+            font-size: 0.43rem;
+            letter-spacing: 0.08em;
           }
         }
 
