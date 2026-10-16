@@ -1,3 +1,4 @@
+
 import { useReveal } from '../hooks/useReveal';
 
 const areas = [
@@ -27,7 +28,7 @@ const areas = [
     title: 'Civil',
     text: 'Atuação na proteção dos direitos da pessoa nas relações privadas e nas situações em que sua dignidade, liberdade, patrimônio, saúde, imagem, honra ou autonomia sejam ameaçados ou violados.',
     text2: 'Compreende demandas relacionadas ao Direito do Consumidor, responsabilidade civil, contratos, relações com empresas e prestadores de serviços, planos e serviços de saúde, acesso e continuidade de tratamentos, reparação de danos e proteção diante de práticas abusivas. A atuação também alcança a defesa dos direitos da personalidade, da liberdade de expressão e de informação, inclusive diante de restrições indevidas, censura ou conflitos envolvendo honra, imagem e atividade informativa.',
-    quote: null,
+    quote: 'O direito só nasce quando você o provoca.',
   },
 ];
 
