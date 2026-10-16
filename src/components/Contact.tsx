@@ -25,7 +25,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-        'https://formsubmit.co/ajax/regislegisassessoria@gmail.com',
+        'https://formsubmit.co/ajax/giovanniperrottapaulino@gmail.com',
         {
           method: 'POST',
           body: formData,
