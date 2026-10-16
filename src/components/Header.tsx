@@ -112,7 +112,7 @@ export default function Header() {
           aria-label="Regina Perrotta Advocacia - Voltar ao início"
         >
           <img
-            src={`${getBasePath()}headerLogo.png`}
+            src={`${getBasePath()}headerLogo1.png`}
             alt=""
             className="header-logo-image"
           />
