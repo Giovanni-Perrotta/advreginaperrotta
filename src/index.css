@@ -77,7 +77,7 @@ p {
   color: var(--neutral-600);
   text-align: justify;
   text-justify: inter-word;
-  hyphens: auto;
+  hyphens: none;
 }
 
 /* Preserva o alinhamento de textos centralizados */
@@ -322,7 +322,7 @@ select:focus-visible {
     overflow-wrap: break-word;
     text-align: justify;
     text-justify: inter-word;
-    hyphens: auto;
+    hyphens: none;
   }
 
   .areas-intro,
