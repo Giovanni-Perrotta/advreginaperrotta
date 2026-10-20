@@ -70,9 +70,29 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); }
 h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
 h4 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
 
+/* Alinhamento dos textos */
+
 p {
   line-height: 1.7;
   color: var(--neutral-600);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Preserva o alinhamento de textos centralizados */
+
+.areas-intro,
+.faq-header p,
+.footer-bottom p {
+  text-align: center;
+}
+
+/* Preserva o alinhamento dos dados do rodapé */
+
+.footer-address,
+.footer-oab p {
+  text-align: left;
 }
 
 a {
@@ -300,6 +320,20 @@ select:focus-visible {
     font-size: 1rem;
     line-height: 1.75;
     overflow-wrap: break-word;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+
+  .areas-intro,
+  .faq-header p,
+  .footer-bottom p {
+    text-align: center;
+  }
+
+  .footer-address,
+  .footer-oab p {
+    text-align: left;
   }
 
   .section-label {
